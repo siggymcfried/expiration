@@ -17,3 +17,12 @@
 .main_button {
   float: right;
 }
+
+.main-header {
+  background-color: grey;
+  height: 50px;
+
+  .user-status {
+    float: right;
+  }
+}
