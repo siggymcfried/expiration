@@ -1,0 +1,9 @@
+<%= form_for @food_item do |f| %>
+  <%= f.label :name %>:
+  <%= f.text_field :name %><br />
+
+  <%= f.label :expiration %>:
+  <%= f.text_field :expiration %><br />
+
+  <%= f.submit %>
+<% end %>
