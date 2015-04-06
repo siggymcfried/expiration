@@ -10,11 +10,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:notice] = "You signed up successfully"
-      flash[:color]= "valid"
       redirect_to food_items_path
     else
-      flash[:notice] = "Form is invalid"
-      flash[:color]= "invalid"
       render "new"
     end
   end
