@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Expiration</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Expiration</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class='main-header'>
+      <img src="<%= asset_path('fridge_and_trash.png') %>">
+      <div class='app-name'>
+        Expiration
+      </div>
+      <div class='tag-line'>
+        Keep your food in your fridge, not your trash!
+      </div>
+      <div class='user-status'>
+        <ul>
+          <% if session[:user_id] %>
+            <li><%= current_user.username %></li>
+            <li><%= link_to 'Logout', sessions_logout_path %></li>
+          <% else %>
+            <li><%= link_to 'Login', sessions_login_path %></li>
+            <li><%= link_to 'Sign Up', new_user_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
 
-<%= yield %>
+    <div>
+      <p><%= flash[:notice] %></p>
+    </div>
 
-</body>
+    <%= yield %>
+
+  </body>
 </html>

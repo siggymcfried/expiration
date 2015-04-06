@@ -1,8 +1,18 @@
-Food Items
-<% @food_items.each do |food_item| %>
-  <%= food_item.name %>
-  <%= food_item.expiration %>
-<% end %>
-<div class='main_button'>
- <%= link_to 'Add item', new_food_item_path %>
-</div>
+<h1>Food Items</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Expiration</th>
+    <th>Time Left</th>
+  </tr>
+  <% @food_items.each do |food_item| %>
+    <tr class="<%= freshness_of(food_item) %>">
+      <td><%= food_item.name %></td>
+      <td><%= food_item.expiration %></td>
+      <td><%= time_ago_in_words(food_item.expiration) %></td>
+    </tr>
+  <% end %>
+  <div class='main_button'>
+   <%= link_to 'Add item', new_food_item_path %>
+  </div>
+</table>

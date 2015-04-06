@@ -17,3 +17,31 @@
 .main_button {
   float: right;
 }
+
+.main-header {
+  height: 200px;
+
+  img {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    max-height:200px;
+  }
+   
+  .app-name {
+    text-align: center;
+    font-size: 60px;
+    color: green;
+    font-family: sans-serif;
+    padding-top: 50px;
+  }
+
+  .tag-line {
+    text-align: center;
+    color: blue;
+  }
+
+  .user-status {
+    text-align: right;
+  }
+}
