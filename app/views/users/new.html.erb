@@ -11,7 +11,8 @@
   <%= f.password_field :password %><br />
 
   <%= f.label :password %>:
-  <%= f.password_field :password_confirmation %>
+  <%= f.password_field :password_confirmation %><br />
 
-  <%= f.submit :sign_up %>
+  <%= f.submit 'Sign Up' %>
+  <%= link_to 'Login', sessions_login_path %>
 <% end %>

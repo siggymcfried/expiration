@@ -22,14 +22,4 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to sessions_login_path
   end
-
-  private
-  def save_login_state
-    if session[:user_id]
-      redirect_to food_items_path
-      false
-    else
-      true
-    end
-  end
 end
