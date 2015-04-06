@@ -8,9 +8,30 @@ class ApplicationController < ActionController::Base
     @current_user ||= session_user || no_user
   end
 
+  protected 
+  def authenticate_user
+    if session[:user_id]
+       # set current user object to @current_user object variable
+      @current_user = User.find session[:user_id] 
+      true 
+    else
+      redirect_to sessions_login_path
+      false
+    end
+  end
+
+  def save_login_state
+    if session[:user_id]
+      redirect_to food_items_path
+      false
+    else
+      true
+    end
+  end
+
   private
   def session_user
-    session[:current_user_id] && User.find_by(id: session[:current_user_id])
+    session[:user_id] && User.find_by(id: session[:user_id])
   end
 
   def no_user

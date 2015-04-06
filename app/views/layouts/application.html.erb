@@ -8,15 +8,28 @@
   </head>
   <body>
     <div class='main-header'>
-      <div class='user-status'>
-        <% if current_user.logged_in? %>
-          <%= current_user.username %>
-          <%= link_to 'Logout', logout_path %>
-        <% else %>
-          <%= link_to 'Login', new_account_path %>
-          <%= link_to 'Sign Up', new_user_path %>
-        <% end %>
+      <img src="<%= asset_path('fridge_and_trash.png') %>">
+      <div class='app-name'>
+        Expiration
       </div>
+      <div class='tag-line'>
+        Keep your food in your fridge, not your trash!
+      </div>
+      <div class='user-status'>
+        <ul>
+          <% if session[:user_id] %>
+            <li><%= current_user.username %></li>
+            <li><%= link_to 'Logout', sessions_logout_path %></li>
+          <% else %>
+            <li><%= link_to 'Login', sessions_login_path %></li>
+            <li><%= link_to 'Sign Up', new_user_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
+    <div>
+      <p><%= flash[:notice] %></p>
     </div>
 
     <%= yield %>

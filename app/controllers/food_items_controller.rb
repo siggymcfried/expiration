@@ -1,14 +1,14 @@
 class FoodItemsController < ApplicationController
   def index
-    @food_items = FoodItem.order(expiration: :desc)
+    @food_items = current_user.food_items.order(expiration: :asc)
   end
 
   def new
-    @food_item = FoodItem.new
+    @food_item = current_user.food_items.new
   end
 
   def create
-    @food_item = FoodItem.new(food_item_create_params)
+    @food_item = current_user.food_items.new(food_item_create_params)
     if @food_item.save
       redirect_to food_items_path
     else
