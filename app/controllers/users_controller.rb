@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:notice] = "You signed up successfully"
+      session[:user_id] = @user.id
       redirect_to food_items_path
     else
       render "new"
