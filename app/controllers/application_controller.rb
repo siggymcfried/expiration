@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user
 
+  before_filter :authenticate_user
+
   def current_user
     @current_user ||= session_user || no_user
   end
@@ -17,15 +19,6 @@ class ApplicationController < ActionController::Base
     else
       redirect_to sessions_login_path
       false
-    end
-  end
-
-  def save_login_state
-    if session[:user_id]
-      redirect_to food_items_path
-      false
-    else
-      true
     end
   end
 
