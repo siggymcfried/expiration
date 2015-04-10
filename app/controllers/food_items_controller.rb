@@ -16,6 +16,26 @@ class FoodItemsController < ApplicationController
     end
   end
 
+  def throw_out
+    food_item = current_user.food_items.find(params[:food_item_id])
+    if food_item.throw_out
+      flash[:success] = 'Food Item Thrown Out'
+    else
+      flash[:error] = 'Food Item Not Thrown Out'
+    end
+    redirect_to food_items_path
+  end
+
+  def finish_eating
+    food_item = current_user.food_items.find(params[:food_item_id])
+    if food_item.finish_eating
+      flash[:success] = 'Food Item Thrown Out'
+    else
+      flash[:error] = 'Food Item Not Thrown Out'
+    end
+    redirect_to food_items_path
+  end
+
   private
   def food_item_create_params
     params.require(:food_item).permit(:name, :expiration)

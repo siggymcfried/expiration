@@ -5,7 +5,10 @@ Rails.application.routes.draw do
 
   root 'food_items#index'
 
-  resources :food_items, only: [:index, :new, :create]
+  resources :food_items, only: [:index, :new, :create] do
+    post :finish_eating
+    post :throw_out
+  end
   resources :users, only: [:new, :create]
 
   # The priority is based upon order of creation: first created -> highest priority.
