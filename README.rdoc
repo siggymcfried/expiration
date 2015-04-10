@@ -60,3 +60,9 @@ Please feel free to use a different markup language if you do not plan to run
 * Donations
 
 * Contact / help / suggestions / about
+
+* Secondary sort by name
+
+* Don't allow other button if thrown out or eaten
+
+* Separate tables for different statuses
