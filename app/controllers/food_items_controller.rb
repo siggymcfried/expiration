@@ -1,6 +1,6 @@
 class FoodItemsController < ApplicationController
   def index
-    @food_items = current_user.food_items.order(expiration: :asc)
+    @food_items = FoodItemsGatherer.new(user: current_user, status: params[:status] || 'expiring').food_items
   end
 
   def new
@@ -29,9 +29,9 @@ class FoodItemsController < ApplicationController
   def finish_eating
     food_item = current_user.food_items.find(params[:food_item_id])
     if food_item.finish_eating
-      flash[:success] = 'Food Item Thrown Out'
+      flash[:success] = 'Food Item Eaten'
     else
-      flash[:error] = 'Food Item Not Thrown Out'
+      flash[:error] = 'Food Item Not Eaten'
     end
     redirect_to food_items_path
   end
