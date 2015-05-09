@@ -1,7 +1,10 @@
 class FoodItemsController < ApplicationController
   def index
     params[:status] ||= 'expiring'
-    @food_items = FoodItemsGatherer.new(user: current_user, status: params[:status]).food_items
+    gatherer = FoodItemsGatherer.new(user: current_user, status: params[:status])
+    @filters = %w(all eaten expiring trashed)
+    @counts = gatherer.counts
+    @food_items = gatherer.food_items
   end
 
   def new

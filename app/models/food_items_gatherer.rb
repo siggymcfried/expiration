@@ -9,6 +9,13 @@ class FoodItemsGatherer
     gatherer.food_items.ordered.limit(100)
   end
 
+  def counts
+    factory_mapper.inject({}) do |hash, (status, gatherer_class)|
+      hash[status] = gatherer_class.new(user: user).count
+      hash
+    end
+  end
+
   private
   attr_reader :user, :status, :gatherer
 

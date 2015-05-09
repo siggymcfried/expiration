@@ -7,6 +7,10 @@ class EatenFoodItemsGatherer
     user.food_items.eaten
   end
 
+  def count
+    food_items.count
+  end
+
   private
   attr_reader :user
 end

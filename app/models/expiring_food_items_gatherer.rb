@@ -7,6 +7,10 @@ class ExpiringFoodItemsGatherer
     user.food_items.expiring
   end
 
+  def count
+    food_items.count
+  end
+
   private
   attr_reader :user
 end

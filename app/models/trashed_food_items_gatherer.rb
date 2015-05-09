@@ -7,6 +7,10 @@ class TrashedFoodItemsGatherer
     user.food_items.trashed
   end
 
+  def count
+    food_items.count
+  end
+
   private
   attr_reader :user
 end
