@@ -1,6 +1,7 @@
 class FoodItemsController < ApplicationController
   def index
-    @food_items = FoodItemsGatherer.new(user: current_user, status: params[:status] || 'expiring').food_items
+    params[:status] ||= 'expiring'
+    @food_items = FoodItemsGatherer.new(user: current_user, status: params[:status]).food_items
   end
 
   def new

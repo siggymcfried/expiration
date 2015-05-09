@@ -29,6 +29,13 @@
     </tr>
   <% end %>
   <div class='main_button'>
-   <%= link_to 'Add item', new_food_item_path %>
+    <%= link_to 'Add item', new_food_item_path %>
+  </div>
+  <div class='filters'>
+    Filters:
+    <%= link_to_unless(params[:status] == 'all',      'All Items',      food_items_path(status: :all)) %>
+    <%= link_to_unless(params[:status] == 'eaten',    'Eaten Items',    food_items_path(status: :eaten)) %>
+    <%= link_to_unless(params[:status] == 'expiring', 'Expiring Items', food_items_path(status: :expiring)) %>
+    <%= link_to_unless(params[:status] == 'trashed',  'Trashed Items',  food_items_path(status: :trashed)) %>
   </div>
 </table>

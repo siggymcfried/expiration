@@ -20,7 +20,7 @@ class FoodItemsGatherer
     {
       all:      AllFoodItemsGatherer,
       eaten:    EatenFoodItemsGatherer,
-      expired:  ExpiredFoodItemsGatherer,
+      trashed:  TrashedFoodItemsGatherer,
       expiring: ExpiringFoodItemsGatherer
     }.with_indifferent_access
   end
