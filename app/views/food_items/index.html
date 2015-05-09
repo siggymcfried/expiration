@@ -10,7 +10,7 @@
   </tr>
   <% @food_items.each do |food_item| %>
     <tr class="<%= freshness_of(food_item) %>">
-      <td><%= link_to('Edit', edit_food_item_path(food_item)) %></td>
+      <td><%= link_to(icon_for(:edit), edit_food_item_path(food_item)) %></td>
       <td><%= food_item.name %></td>
       <td><%= food_item.expiration %></td>
       <td><%= time_ago_in_words(food_item.expiration) %></td>
@@ -18,14 +18,18 @@
         <% if food_item.eaten? %>
           <%= food_item.eaten_on %>
         <% else %>
-          <%= button_to('Finished Eating', food_item_finish_eating_path(food_item))%>
+          <%= button_to(food_item_finish_eating_path(food_item)) do %>
+            <% icon_for(:eaten) %>
+          <% end %>
         <% end %>
       </td>
       <td>
         <% if food_item.trashed? %>
           <%= food_item.trashed_on %>
         <% else %>
-          <%= button_to('Thrown Out', food_item_throw_out_path(food_item))%></td>
+          <%= button_to(food_item_throw_out_path(food_item)) do %>
+            <% icon_for(:trash) %>
+          <% end %>
         <% end %>
       </td>
     </tr>
