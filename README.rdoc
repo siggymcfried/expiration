@@ -57,6 +57,4 @@ Please feel free to use a different markup language if you do not plan to run
 
 * Contact / help / suggestions / about
 
-* Don't allow other button if thrown out or eaten
-
 * Separate tables for different statuses

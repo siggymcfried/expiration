@@ -14,24 +14,24 @@
       <td><%= food_item.name %></td>
       <td><%= food_item.expiration %></td>
       <td><%= time_ago_in_words(food_item.expiration) %></td>
-      <td>
-        <% if food_item.eaten? %>
-          <%= food_item.eaten_on %>
-        <% else %>
+      <% if food_item.eaten? %>
+        <td><%= food_item.eaten_on %></td>
+        <td></td>
+      <% elsif food_item.trashed? %>
+        <td></td>
+        <td><%= food_item.trashed_on %></td>
+      <% else %>
+        <td>
           <%= button_to(food_item_finish_eating_path(food_item)) do %>
             <% icon_for(:eaten) %>
           <% end %>
-        <% end %>
-      </td>
-      <td>
-        <% if food_item.trashed? %>
-          <%= food_item.trashed_on %>
-        <% else %>
+        </td>
+        <td>
           <%= button_to(food_item_throw_out_path(food_item)) do %>
             <% icon_for(:trash) %>
           <% end %>
-        <% end %>
-      </td>
+        </td>
+      <% end %>
     </tr>
   <% end %>
   <div class='main_button'>
