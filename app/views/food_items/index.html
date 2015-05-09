@@ -13,15 +13,15 @@
       <td><%= food_item.expiration %></td>
       <td><%= time_ago_in_words(food_item.expiration) %></td>
       <td>
-        <% if food_item.finished_eating_on %>
-          <%= food_item.finished_eating_on %>
+        <% if food_item.eaten? %>
+          <%= food_item.eaten_on %>
         <% else %>
           <%= button_to('Finished Eating', food_item_finish_eating_path(food_item))%>
         <% end %>
       </td>
       <td>
-        <% if food_item.thrown_out_on %>
-          <%= food_item.thrown_out_on %>
+        <% if food_item.trashed? %>
+          <%= food_item.trashed_on %>
         <% else %>
           <%= button_to('Thrown Out', food_item_throw_out_path(food_item))%></td>
         <% end %>

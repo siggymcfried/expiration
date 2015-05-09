@@ -11,19 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150410025132) do
+ActiveRecord::Schema.define(version: 20150509163622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "food_items", force: :cascade do |t|
-    t.string   "name",               null: false
-    t.date     "expiration",         null: false
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.integer  "user_id",            null: false
-    t.date     "finished_eating_on"
-    t.date     "thrown_out_on"
+    t.string   "name",       null: false
+    t.date     "expiration", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id",    null: false
+    t.date     "eaten_on"
+    t.date     "trashed_on"
   end
 
   create_table "users", force: :cascade do |t|

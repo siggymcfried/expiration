@@ -4,11 +4,25 @@ class FoodItem < ActiveRecord::Base
 
   belongs_to :user
 
+  scope :eaten,       -> { where.not(eaten_on: nil) }
+  scope :trashed,     -> { where.not(trashed_on: nil) }
+  scope :expiring,    -> { not_trashed.not_eaten }
+  scope :not_eaten,   -> { where(eaten_on: nil) }
+  scope :not_trashed, -> { where(trashed_on: nil) }
+
+  def trashed?
+    trashed_on.present?
+  end
+
+  def eaten?
+    eaten_on.present?
+  end
+
   def throw_out
-    update(thrown_out_on: Date.today)
+    update(trashed_on: Date.today)
   end
 
   def finish_eating
-    update(finished_eating_on: Date.today)
+    update(eaten_on: Date.today)
   end
 end
