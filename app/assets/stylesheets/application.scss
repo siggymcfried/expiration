@@ -45,3 +45,13 @@
     text-align: right;
   }
 }
+
+.filters {
+  float: right;
+  clear: right;
+  border: 1px dotted black;
+
+  li {
+    list-style-type: none;
+  }
+}
