@@ -49,19 +49,13 @@ Please feel free to use a different markup language if you do not plan to run
 
 * Specs
 
-* Edit/delete items
-
-* Mark items as thrown out/eaten
-
-* Don't show old food on main page
+* Delete items
 
 * Mobile App
 
 * Donations
 
 * Contact / help / suggestions / about
-
-* Secondary sort by name
 
 * Don't allow other button if thrown out or eaten
 

@@ -9,6 +9,7 @@ class FoodItem < ActiveRecord::Base
   scope :expiring,    -> { not_trashed.not_eaten }
   scope :not_eaten,   -> { where(eaten_on: nil) }
   scope :not_trashed, -> { where(trashed_on: nil) }
+  scope :ordered,     -> { order(expiration: :asc).order('LOWER(name)') }
 
   def trashed?
     trashed_on.present?

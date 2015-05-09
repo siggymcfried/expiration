@@ -6,7 +6,7 @@ class FoodItemsGatherer
   end
 
   def food_items
-    gatherer.food_items
+    gatherer.food_items.ordered.limit(100)
   end
 
   private

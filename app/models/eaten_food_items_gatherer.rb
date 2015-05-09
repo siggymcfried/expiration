@@ -4,7 +4,7 @@ class EatenFoodItemsGatherer
   end
 
   def food_items
-    user.food_items.eaten.order(expiration: :asc)
+    user.food_items.eaten
   end
 
   private
