@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   root 'food_items#index'
 
-  resources :food_items, only: [:index, :new, :create] do
+  resources :food_items, only: [:index, :new, :create, :edit, :update] do
     post :finish_eating
     post :throw_out
   end

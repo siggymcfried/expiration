@@ -1,6 +1,7 @@
 <h1>Food Items</h1>
 <table>
   <tr>
+    <th></th>
     <th>Name</th>
     <th>Expiration</th>
     <th>Time Left</th>
@@ -9,6 +10,7 @@
   </tr>
   <% @food_items.each do |food_item| %>
     <tr class="<%= freshness_of(food_item) %>">
+      <td><%= link_to('Edit', edit_food_item_path(food_item)) %></td>
       <td><%= food_item.name %></td>
       <td><%= food_item.expiration %></td>
       <td><%= time_ago_in_words(food_item.expiration) %></td>

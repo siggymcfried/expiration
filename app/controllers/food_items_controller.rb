@@ -17,6 +17,19 @@ class FoodItemsController < ApplicationController
     end
   end
 
+  def edit
+    @food_item = current_user.food_items.find(params[:id])
+  end
+
+  def update
+    @food_item = current_user.food_items.find(params[:id])
+    if @food_item.update(food_item_update_params)
+      redirect_to food_items_path
+    else
+      render :edit
+    end
+  end
+
   def throw_out
     food_item = current_user.food_items.find(params[:food_item_id])
     if food_item.throw_out
@@ -40,5 +53,9 @@ class FoodItemsController < ApplicationController
   private
   def food_item_create_params
     params.require(:food_item).permit(:name, :expiration)
+  end
+
+  def food_item_update_params
+    params.require(:food_item).permit(:name, :expiration, :eaten_on, :trashed_on)
   end
 end
