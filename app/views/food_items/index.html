@@ -1,5 +1,22 @@
+<div class='main_button'>
+  <%= link_to 'Add item', new_food_item_path %>
+</div>
+<div class='filters'>
+  Filters:
+  <ul>
+    <% @filters.each do |filter| %>
+      <li>
+        <%= link_to_unless(
+          params[:status] == filter,
+          "(#{@counts[filter]}) #{filter.humanize} Items",
+          food_items_path(status: filter)
+        ) %>
+      </li>
+    <% end %>
+  </ul>
+</div>
 <h1>Food Items</h1>
-<table>
+<table class='table table-hover'>
   <tr>
     <th></th>
     <th>Name</th>
@@ -34,21 +51,4 @@
       <% end %>
     </tr>
   <% end %>
-  <div class='main_button'>
-    <%= link_to 'Add item', new_food_item_path %>
-  </div>
-  <div class='filters'>
-    Filters:
-    <ul>
-      <% @filters.each do |filter| %>
-        <li>
-          <%= link_to_unless(
-            params[:status] == filter,
-            "(#{@counts[filter]}) #{filter.humanize} Items",
-            food_items_path(status: filter)
-          ) %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
 </table>
