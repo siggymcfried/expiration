@@ -56,3 +56,9 @@ Please feel free to use a different markup language if you do not plan to run
 * Contact / help / suggestions / about
 
 * Separate tables for different statuses
+
+* Resolve weird wording (eaten/throw out)
+
+* Endless scrolling
+
+* Purchase domain name
