@@ -19,6 +19,7 @@ class Icon
 
   def icon_classes
     {
+      add:   'fa-plus',
       eaten: 'fa-cutlery',
       edit:  'fa-edit',
       trash: 'fa-trash-o'

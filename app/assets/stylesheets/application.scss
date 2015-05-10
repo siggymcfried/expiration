@@ -14,10 +14,6 @@
  *= require_self
  */
 
-.main_button {
-  float: right;
-}
-
 .main-header {
   height: 200px;
 
@@ -43,15 +39,5 @@
 
   .user-status {
     text-align: right;
-  }
-}
-
-.filters {
-  float: right;
-  clear: right;
-  border: 1px dotted black;
-
-  li {
-    list-style-type: none;
   }
 }

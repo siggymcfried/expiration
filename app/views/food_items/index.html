@@ -1,20 +1,25 @@
-<div class='main_button'>
-  <%= link_to 'Add item', new_food_item_path %>
-</div>
-<div class='filters'>
-  Filters:
-  <ul>
-    <% @filters.each do |filter| %>
-      <li>
-        <%= link_to_unless(
-          params[:status] == filter,
-          "(#{@counts[filter]}) #{filter.humanize} Items",
-          food_items_path(status: filter)
-        ) %>
-      </li>
-    <% end %>
+<div class="btn-group pull-right" role="group">
+  <%= link_to(new_food_item_path, class: 'btn btn-default') do %>
+    <%= icon_for(:add) %>
+  <% end %>
+
+  <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+    <%= badge_for(count: @counts[params[:status]]) %>
+    <%= "#{params[:status].humanize} Items" %>
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <% @filters.each do |filter| %>
+        <%= link_to(food_items_path(status: filter)) do %>
+          <%= badge_for(count: @counts[filter]) %>
+          <%= "#{filter.humanize} Items" %>
+        <% end %>
+      <% end %>
+    </li>
   </ul>
 </div>
+
 <h1>Food Items</h1>
 <table class='table table-hover'>
   <tr>
@@ -27,7 +32,7 @@
   </tr>
   <% @food_items.each do |food_item| %>
     <tr class="<%= freshness_of(food_item) %>">
-      <td><%= link_to(icon_for(:edit), edit_food_item_path(food_item)) %></td>
+      <td><%= link_to(icon_for(:edit), edit_food_item_path(food_item), class: 'btn btn-default') %></td>
       <td><%= food_item.name %></td>
       <td><%= food_item.expiration %></td>
       <td><%= time_ago_in_words(food_item.expiration) %></td>
@@ -39,12 +44,12 @@
         <td><%= food_item.trashed_on %></td>
       <% else %>
         <td>
-          <%= button_to(food_item_finish_eating_path(food_item)) do %>
+          <%= button_to(food_item_finish_eating_path(food_item), class: 'btn btn-default') do %>
             <% icon_for(:eaten) %>
           <% end %>
         </td>
         <td>
-          <%= button_to(food_item_throw_out_path(food_item)) do %>
+          <%= button_to(food_item_throw_out_path(food_item), class: 'btn btn-default') do %>
             <% icon_for(:trash) %>
           <% end %>
         </td>
