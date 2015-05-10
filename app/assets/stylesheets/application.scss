@@ -14,30 +14,13 @@
  *= require_self
  */
 
-.main-header {
-  height: 200px;
-
+.navbar-header {
   img {
-    position: absolute;
-    left: 15px;
-    top: 15px;
-    max-height:200px;
-  }
-   
-  .app-name {
-    text-align: center;
-    font-size: 60px;
-    color: green;
-    font-family: sans-serif;
-    padding-top: 50px;
+    max-height:35px;
   }
 
   .tag-line {
-    text-align: center;
-    color: blue;
-  }
-
-  .user-status {
-    text-align: right;
+    white-space: nowrap;
+    padding-left: 20px;
   }
 }
