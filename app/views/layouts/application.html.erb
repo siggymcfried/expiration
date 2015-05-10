@@ -24,26 +24,40 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div class='main-header'>
-      <img src="<%= asset_path('fridge_and_trash.png') %>">
-      <div class='app-name'>
-        Expiration
-      </div>
-      <div class='tag-line'>
-        Keep your food in your fridge, not your trash!
-      </div>
-      <div class='user-status'>
-        <ul>
-          <% if session[:user_id] %>
-            <li><%= current_user.username %></li>
-            <li><%= link_to 'Logout', sessions_logout_path %></li>
-          <% else %>
-            <li><%= link_to 'Login', sessions_login_path %></li>
-            <li><%= link_to 'Sign Up', new_user_path %></li>
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <%= link_to(food_items_path, class: 'navbar-brand') do %>
+            <img src="<%= asset_path('fridge_and_trash.png') %>">
           <% end %>
-        </ul>
+
+          <ul class="nav navbar-nav">
+            <li>
+              <h3 class='text-primary'>Expiration</h3>
+            </li>
+            <li>
+              <h3 class='tag-line'>
+                <small>
+                  Keep your food in your fridge - not your trash!
+                </small>
+              </h3>
+            </li>
+          </ul>
+        </div>
+
+        <div class="collapse navbar-collapse">
+          <p class="navbar-text navbar-right">
+            <% if session[:user_id] %>
+              Signed in as <%= current_user.username %>
+              <%= link_to 'Logout', sessions_logout_path, class: 'btn btn-default' %>
+            <% else %>
+              <%= link_to 'Login', sessions_login_path, class: 'btn btn-default' %>
+              <%= link_to 'Sign Up', new_user_path, class: 'btn btn-default' %>
+            <% end %>
+          </p>
+        </div>
       </div>
-    </div>
+    </nav>
 
     <div>
       <p><%= flash[:notice] %></p>
