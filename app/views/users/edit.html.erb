@@ -1,0 +1,18 @@
+<h1>Edit</h1>
+<%= render 'shared/error_messages', target: current_user %>
+<%= form_for current_user do |f| %>
+  <%= f.label :username %>:
+  <%= f.text_field :username %><br />
+
+  <%= f.label :email %>:
+  <%= f.text_field :email %><br />
+
+  <%= f.label :password %>:
+  <%= f.password_field :password %><br />
+
+  <%= f.label :password %>:
+  <%= f.password_field :password_confirmation %><br />
+
+  <%= f.submit 'Save' %>
+  <%= link_to 'Permanently delete user', user_path(current_user), method: :delete, data: {confirm: "Are you sure you want to delete your account?"} %>
+<% end %>
