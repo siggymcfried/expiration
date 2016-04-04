@@ -4,12 +4,15 @@ class FoodItem < ActiveRecord::Base
 
   belongs_to :user
 
-  scope :eaten,       -> { where.not(eaten_on: nil) }
-  scope :trashed,     -> { where.not(trashed_on: nil) }
-  scope :expiring,    -> { not_trashed.not_eaten }
-  scope :not_eaten,   -> { where(eaten_on: nil) }
-  scope :not_trashed, -> { where(trashed_on: nil) }
-  scope :ordered,     -> { order(expiration: :asc).order('LOWER(name)') }
+  scope :eaten,          -> { where.not(eaten_on: nil) }
+  scope :trashed,        -> { where.not(trashed_on: nil) }
+  scope :expiring,       -> { not_trashed.not_eaten }
+  scope :expired,        -> { expiring_by(Date.today) }
+  scope :expiring_by,    ->(date) { where('expiration < ?', date) }
+  scope :expiring_after, ->(date) { where('expiration >= ?', date) }
+  scope :not_eaten,      -> { where(eaten_on: nil) }
+  scope :not_trashed,    -> { where(trashed_on: nil) }
+  scope :ordered,        -> { order(expiration: :asc).order('LOWER(name)') }
 
   def trashed?
     trashed_on.present?

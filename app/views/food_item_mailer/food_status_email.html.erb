@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Food Stats</h1>
+
+    <h2><%= @expired_items.size %> Expired Items</h2>
+    <% if @expired_items.any? %>
+      <table>
+        <th>
+          Item
+        </th>
+        <th>
+          Date
+        </th>
+        <% @expired_items.each do |expired_item| %>
+          <tr>
+          <td>
+            <%= expired_item.name %>
+          </td>
+          <td>
+            <%= expired_item.expiration %>
+          </td>
+        </tr>
+      <% end %>
+      </table>
+    <% else %>
+      There are no expired items.
+    <% end %>
+
+    <h2><%= @expiring_items.size %> Items Expiring in the Next Week</h2>
+    <% if @expiring_items.any? %>
+      <table>
+        <% @expiring_items.each do |expiring_item| %>
+          <tr>
+            <td>
+              <%= expiring_item.name %>
+            </td>
+            <td>
+              <%= expiring_item.expiration %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    <% else %>
+      There are no items expiring in the next week.
+    <% end %>
+    <div>
+      Check out all your items at <%= link_to('expiration.xyz', food_items_url) %>
+    </div>
+  </body>
+</html>
