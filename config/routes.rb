@@ -9,5 +9,5 @@ Rails.application.routes.draw do
     post :finish_eating
     post :throw_out
   end
-  resources :users, only: [:new, :create, :edit, :update]
+  resources :users, only: [:new, :create, :edit, :update, :destroy]
 end
