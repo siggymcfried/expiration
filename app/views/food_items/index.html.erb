@@ -1,27 +1,42 @@
-<div class="btn-group pull-right" role="group">
-  <%= link_to(new_food_item_path, class: 'btn btn-default') do %>
-    <%= icon_for(:add) %>
-    Add New Item
-  <% end %>
-
-  <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-    <%= badge_for(count: @counts[params[:status]]) %>
-    <%= "#{params[:status].humanize} Items" %>
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <% @filters.each do |filter| %>
-        <%= link_to(food_items_path(status: filter)) do %>
-          <%= badge_for(count: @counts[filter]) %>
-          <%= "#{filter.humanize} Items" %>
-        <% end %>
+<div class="row pull-right">
+  <div class='col-lg-4'>
+    <h1>Food Items</h1>
+  </div>
+  <div class="col-lg-4">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search for...">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Go!</button>
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+  <div class="col-lg-4">
+    <div class="btn-group pull-right" role="group">
+      <%= link_to(new_food_item_path, class: 'btn btn-default') do %>
+        <%= icon_for(:add) %>
+        Add New Item
       <% end %>
-    </li>
-  </ul>
-</div>
 
-<h1>Food Items</h1>
+      <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+        <%= badge_for(count: @counts[params[:status]]) %>
+        <%= "#{params[:status].humanize} Items" %>
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <% @filters.each do |filter| %>
+            <%= link_to(food_items_path(status: filter)) do %>
+              <%= badge_for(count: @counts[filter]) %>
+              <%= "#{filter.humanize} Items" %>
+            <% end %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
+
+
 <table class='table table-hover'>
   <tr>
     <th></th>
