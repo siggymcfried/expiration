@@ -1,4 +1,6 @@
 class FoodItem < ActiveRecord::Base
+  self.per_page = 100
+
   validates :name, presence: true
   validates :expiration, presence: true
 

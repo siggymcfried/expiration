@@ -1,12 +1,13 @@
 class FoodItemsGatherer
-  def initialize(user:, status:)
+  def initialize(user:, status:, page:)
     @user     = user
     @status   = status
+    @page     = page
     @gatherer = gatherer_factory
   end
 
   def food_items
-    gatherer.food_items.ordered.limit(100)
+    gatherer.food_items.ordered.page(page)
   end
 
   def counts
@@ -17,7 +18,7 @@ class FoodItemsGatherer
   end
 
   private
-  attr_reader :user, :status, :gatherer
+  attr_reader :user, :status, :page, :gatherer
 
   def gatherer_factory
     factory_mapper[status].new(user: user)

@@ -14,6 +14,7 @@ gem 'jbuilder'
 gem 'sdoc', group: :doc
 
 gem 'bcrypt'
+gem 'will_paginate'
 
 group :development, :test do
   gem 'pry'
