@@ -1,9 +1,0 @@
-<div>
-  <h1>Log in</h1>
-  <%= form_tag sessions_login_attempt_path do %>
-    <p>Username or Email:</br> <%= text_field_tag(:username_or_email) %></p> 
-    <p>Password:</br> <%= password_field_tag :login_password %></p> 
-    <%= submit_tag("Log In") %>
-    <%= link_to 'Sign Up', new_user_path %>
-  <% end %>
-</div>
