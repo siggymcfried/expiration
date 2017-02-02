@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   scope :with_expired_or_expiring_food, -> { joins(:food_items).merge(FoodItem.expiring_by(1.week.from_now).not_eaten.not_trashed) }
 
-  has_many :food_items
+  has_many :food_items, dependent: :destroy
 
   def self.authenticate(username_or_email:, password:)
     user_by_username_or_email(username_or_email).authenticate(password) 
