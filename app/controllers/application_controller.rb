@@ -12,23 +12,12 @@ class ApplicationController < ActionController::Base
 
   protected 
   def authenticate_user
-    if session[:user_id]
-       # set current user object to @current_user object variable
-      @current_user = User.find session[:user_id] 
-      true 
-    else
-      redirect_to sessions_login_path
-      false
-    end
+    redirect_to new_session_path if session[:user_id].blank? || session[:token].blank?
   end
   
-  def save_login_state
-    if session[:user_id]
-      redirect_to food_items_path
-      false
-    else
-      true
-    end
+  def clear_session
+    session[:user_id] = nil
+    session[:token] = nil
   end
 
   private

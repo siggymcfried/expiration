@@ -49,10 +49,9 @@
           <p class="navbar-text navbar-right">
             <% if session[:user_id] %>
               Signed in as <%= link_to(current_user.username, edit_user_path(current_user)) %>
-              <%= link_to 'Logout', sessions_logout_path, class: 'btn btn-default' %>
+              <%= link_to 'Logout', sessions_path, method: :delete, class: 'btn btn-default' %>
             <% else %>
-              <%= link_to 'Login', sessions_login_path, class: 'btn btn-default' %>
-              <%= link_to 'Sign Up', new_user_path, class: 'btn btn-default' %>
+              <%= link_to 'Login or Sign Up', new_session_path, class: 'btn btn-default' %>
             <% end %>
           </p>
         </div>
