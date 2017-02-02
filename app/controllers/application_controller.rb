@@ -15,15 +15,6 @@ class ApplicationController < ActionController::Base
     redirect_to new_session_path if session[:user_id].blank?
   end
   
-  def save_login_state
-    if session[:user_id]
-      redirect_to food_items_path
-      false
-    else
-      true
-    end
-  end
-
   private
   def session_user
     session[:user_id] && User.find_by(id: session[:user_id])

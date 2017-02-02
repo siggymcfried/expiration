@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  before_filter :save_login_state, only: [:login, :login_attempt]
   skip_before_filter :authenticate_user
 
   def new
