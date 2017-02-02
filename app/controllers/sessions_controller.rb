@@ -24,8 +24,7 @@ class SessionsController < ApplicationController
   end
 
   def logout
-    session[:user_id] = nil
-    session[:token] = nil
+    clear_session
     redirect_to new_session_path
   end
 end

@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 
   def destroy
     current_user.destroy
-    session[:user_id] = nil
+    clear_session
     redirect_to root_path
   end
 
