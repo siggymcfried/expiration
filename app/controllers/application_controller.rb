@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
 
   protected 
   def authenticate_user
-    redirect_to new_session_path if session[:user_id].blank?
+    redirect_to new_session_path if session[:user_id].blank? || session[:token].blank?
   end
   
   def clear_session
