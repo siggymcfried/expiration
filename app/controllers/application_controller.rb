@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   before_filter :authenticate_user
 
   def current_user
-    @current_user ||= session_user || no_user
+    @current_user ||= session_user
   end
 
   protected 
@@ -23,9 +23,5 @@ class ApplicationController < ActionController::Base
   private
   def session_user
     session[:user_id] && User.find_by(id: session[:user_id])
-  end
-
-  def no_user
-    NullUser.new
   end
 end
