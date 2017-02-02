@@ -13,6 +13,7 @@ gem 'turbolinks'
 gem 'jbuilder'
 gem 'sdoc', group: :doc
 
+gem 'dotenv-rails'
 gem 'omniauth-google-oauth2'
 gem 'will_paginate'
 
