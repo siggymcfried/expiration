@@ -8,6 +8,7 @@ gem 'jbuilder'
 gem 'jquery-rails'
 gem 'omniauth-google-oauth2'
 gem 'pg'
+gem 'puma'
 gem 'rails'
 gem 'sass-rails'
 gem 'sdoc', group: :doc
