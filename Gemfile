@@ -2,26 +2,24 @@ source 'https://rubygems.org'
 
 ruby "2.3.1"
 
-gem 'rails'
-gem 'pg'
-gem 'sass-rails'
-gem 'uglifier'
 gem 'coffee-rails'
-
-gem 'jquery-rails'
-gem 'turbolinks'
-gem 'jbuilder'
-gem 'sdoc', group: :doc
-
 gem 'dotenv-rails'
+gem 'jbuilder'
+gem 'jquery-rails'
 gem 'omniauth-google-oauth2'
+gem 'pg'
+gem 'rails'
+gem 'sass-rails'
+gem 'sdoc', group: :doc
+gem 'turbolinks'
+gem 'uglifier'
 gem 'will_paginate'
 
 group :development, :test do
   gem 'pry'
-  gem 'web-console'
-  gem 'spring'
   gem 'rspec-rails'
+  gem 'spring'
+  gem 'web-console'
 end
 
 group :production do
