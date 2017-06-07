@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper.rb'
 
 describe FoodItem do
@@ -7,4 +9,3 @@ describe FoodItem do
     end
   end
 end
-

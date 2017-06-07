@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class Icon
   include ActionView::Helpers::TagHelper
-  include ActionView::Context 
+  include ActionView::Context
 
   def initialize(icon_name:)
     @icon_name = icon_name

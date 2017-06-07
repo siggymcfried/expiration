@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FoodItemsHelper
   def freshness_of(food_item)
     expiration = food_item.expiration

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ExpiringFoodItemsGatherer
   def initialize(user:)
     @user = user

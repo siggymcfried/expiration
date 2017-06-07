@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SessionsController < ApplicationController
   skip_before_filter :authenticate_user
 
@@ -6,9 +8,9 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_or_create_by!(email: request.env["omniauth.auth"][:info][:email])
+    user = User.find_or_create_by!(email: request.env['omniauth.auth'][:info][:email])
     session[:user_id] = user.id
-    session[:token] = request.env["omniauth.auth"][:credentials][:token]
+    session[:token] = request.env['omniauth.auth'][:credentials][:token]
     redirect_to food_items_path
   end
 

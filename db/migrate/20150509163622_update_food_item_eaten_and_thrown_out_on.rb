@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UpdateFoodItemEatenAndThrownOutOn < ActiveRecord::Migration
   def change
     change_table :food_items do |t|

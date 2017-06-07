@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
-ruby "2.4.1"
+ruby '2.4.1'
 
 gem 'coffee-rails'
 gem 'dotenv-rails'
@@ -19,6 +21,7 @@ gem 'will_paginate'
 group :development, :test do
   gem 'pry'
   gem 'rspec-rails'
+  gem 'rubocop'
   gem 'spring'
 end
 
