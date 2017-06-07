@@ -31,16 +31,3 @@ Style/Documentation:
 Style/EachWithObject:
   Exclude:
     - 'app/models/food_items_gatherer.rb'
-
-# Offense count: 2
-# Configuration parameters: MinBodyLength.
-Style/GuardClause:
-  Exclude:
-    - 'app/models/food_item.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: MaxLineLength.
-Style/IfUnlessModifier:
-  Exclude:
-    - 'app/models/food_item.rb'
