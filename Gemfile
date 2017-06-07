@@ -26,6 +26,10 @@ group :development do
   gem 'web-console'
 end
 
+group :test do
+  gem 'rspec_junit_formatter'
+end
+
 group :production do
   gem 'rails_12factor'
 end
