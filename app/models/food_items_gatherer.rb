@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FoodItemsGatherer
   def initialize(user:, status:, page:)
     @user     = user

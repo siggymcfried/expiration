@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Icon
   include ActionView::Helpers::TagHelper
   include ActionView::Context

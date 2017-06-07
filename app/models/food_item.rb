@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FoodItem < ActiveRecord::Base
   self.per_page = 100
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FoodItemsController < ApplicationController
   def index
     params[:status] ||= 'expiring'
