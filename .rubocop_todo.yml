@@ -78,21 +78,6 @@ Style/PercentLiteralDelimiters:
   Exclude:
     - 'app/controllers/food_items_controller.rb'
 
-# Offense count: 28
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles, ConsistentQuotesInMultiline.
-# SupportedStyles: single_quotes, double_quotes
-Style/StringLiterals:
-  Exclude:
-    - 'Gemfile'
-    - 'app/controllers/sessions_controller.rb'
-    - 'app/mailers/application_mailer.rb'
-    - 'bin/setup'
-    - 'bin/spring'
-    - 'config/environments/development.rb'
-    - 'config/initializers/omniauth.rb'
-    - 'db/schema.rb'
-
 # Offense count: 3
 # Cop supports --auto-correct.
 # Configuration parameters: MinSize, SupportedStyles.
