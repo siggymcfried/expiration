@@ -10,11 +10,11 @@ class ApplicationController < ActionController::Base
     @current_user ||= session_user
   end
 
-  protected 
+  protected
   def authenticate_user
     redirect_to new_session_path if session[:user_id].blank? || session[:token].blank?
   end
-  
+
   def clear_session
     session[:user_id] = nil
     session[:token] = nil

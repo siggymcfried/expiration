@@ -7,4 +7,3 @@ describe FoodItem do
     end
   end
 end
-
