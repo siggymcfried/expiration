@@ -1,3 +1,3 @@
-# Be sure to restart your server when you modify this file.
+# frozen_string_literal: true
 
 Rails.application.config.filter_parameters += [:password]
