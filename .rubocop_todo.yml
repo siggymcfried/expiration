@@ -58,15 +58,6 @@ Style/GuardClause:
   Exclude:
     - 'app/models/food_item.rb'
 
-# Offense count: 11
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles, UseHashRocketsWithSymbolValues, PreferHashRocketsForNonAlnumEndingSymbols.
-# SupportedStyles: ruby19, hash_rockets, no_mixed_keys, ruby19_no_mixed_keys
-Style/HashSyntax:
-  Exclude:
-    - 'config/environments/development.rb'
-    - 'config/environments/production.rb'
-
 # Offense count: 2
 # Cop supports --auto-correct.
 # Configuration parameters: MaxLineLength.
