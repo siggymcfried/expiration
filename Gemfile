@@ -19,6 +19,7 @@ gem 'will_paginate'
 group :development, :test do
   gem 'pry'
   gem 'rspec-rails'
+  gem 'rubocop'
   gem 'spring'
 end
 
