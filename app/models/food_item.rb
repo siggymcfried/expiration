@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FoodItem < ActiveRecord::Base
   self.per_page = 100
 
@@ -33,14 +35,10 @@ class FoodItem < ActiveRecord::Base
   end
 
   def throw_out
-    if not_trashed? && not_eaten?
-      update(trashed_on: Date.today)
-    end
+    update(trashed_on: Date.today) if not_trashed? && not_eaten?
   end
 
   def finish_eating
-    if not_trashed? && not_eaten?
-      update(eaten_on: Date.today)
-    end
+    update(eaten_on: Date.today) if not_trashed? && not_eaten?
   end
 end

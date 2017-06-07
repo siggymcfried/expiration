@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RemovePasswordAndUsernameFromUsers < ActiveRecord::Migration
   def up
     remove_column :users, :password_digest

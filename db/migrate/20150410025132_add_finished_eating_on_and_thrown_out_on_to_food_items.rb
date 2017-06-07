@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddFinishedEatingOnAndThrownOutOnToFoodItems < ActiveRecord::Migration
   def change
     add_column :food_items, :finished_eating_on, :date
