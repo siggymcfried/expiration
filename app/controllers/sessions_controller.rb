@@ -1,25 +1,25 @@
-class SessionsController < ApplicationController
-  before_filter :save_login_state, only: [:login, :login_attempt]
-  skip_before_filter :authenticate_user
+# frozen_string_literal: true
 
-  def login
+class SessionsController < ApplicationController
+  skip_before_action :authenticate_user
+
+  def new
+    redirect_to '/auth/google_oauth2'
   end
 
-  def login_attempt
-    authorized_user = User.authenticate(username_or_email: params[:username_or_email], password: params[:login_password])
-    if authorized_user
-      session[:user_id] = authorized_user.id
-      flash[:notice] = "Wow Welcome again, you logged in as #{authorized_user.username}"
-      redirect_to food_items_path
-    else
-      flash[:notice] = "Invalid Username or Password"
-      flash[:color]= "invalid"
-      render "login"  
-    end
+  def create
+    user = User.find_or_create_by!(email: request.env['omniauth.auth'][:info][:email])
+    session[:user_id] = user.id
+    session[:token] = request.env['omniauth.auth'][:credentials][:token]
+    redirect_to food_items_path
+  end
+
+  def destroy
+    logout
   end
 
   def logout
-    session[:user_id] = nil
-    redirect_to sessions_login_path
+    clear_session
+    redirect_to new_session_path
   end
 end

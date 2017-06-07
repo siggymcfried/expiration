@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :expiration do
   desc 'Sends emails for expiring food'
   task email_notifications: :environment do

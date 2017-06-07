@@ -1,42 +1,27 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
-  protect_from_forgery with: :exception
+  protect_from_forgery with: :null_session
   helper_method :current_user
 
-  before_filter :authenticate_user
+  before_action :authenticate_user
 
   def current_user
-    @current_user ||= session_user || no_user
+    @current_user ||= session_user
   end
 
-  protected 
+  protected
   def authenticate_user
-    if session[:user_id]
-       # set current user object to @current_user object variable
-      @current_user = User.find session[:user_id] 
-      true 
-    else
-      redirect_to sessions_login_path
-      false
-    end
+    redirect_to new_session_path if session[:user_id].blank? || session[:token].blank?
   end
-  
-  def save_login_state
-    if session[:user_id]
-      redirect_to food_items_path
-      false
-    else
-      true
-    end
+
+  def clear_session
+    session[:user_id] = nil
+    session[:token] = nil
   end
 
   private
   def session_user
     session[:user_id] && User.find_by(id: session[:user_id])
-  end
-
-  def no_user
-    NullUser.new
   end
 end

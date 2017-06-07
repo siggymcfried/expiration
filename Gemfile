@@ -1,26 +1,36 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
-ruby "2.3.1"
+ruby '2.4.1'
 
-gem 'rails'
-gem 'pg'
-gem 'sass-rails'
-gem 'uglifier'
 gem 'coffee-rails'
-
-gem 'jquery-rails'
-gem 'turbolinks'
+gem 'dotenv-rails'
 gem 'jbuilder'
+gem 'jquery-rails'
+gem 'omniauth-google-oauth2'
+gem 'pg'
+gem 'puma'
+gem 'rails'
+gem 'sass-rails'
 gem 'sdoc', group: :doc
-
-gem 'bcrypt'
+gem 'turbolinks'
+gem 'uglifier'
 gem 'will_paginate'
 
 group :development, :test do
   gem 'pry'
-  gem 'web-console'
-  gem 'spring'
   gem 'rspec-rails'
+  gem 'rubocop'
+  gem 'spring'
+end
+
+group :development do
+  gem 'web-console'
+end
+
+group :test do
+  gem 'rspec_junit_formatter'
 end
 
 group :production do

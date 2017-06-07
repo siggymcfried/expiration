@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
   config.cache_classes = true
   config.eager_load = true
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
-  config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
+  config.public_file_server.enabled = false
   config.assets.js_compressor = :uglifier
   config.assets.compile = false
   config.assets.digest = true
@@ -14,13 +16,13 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address        => 'smtp.sendgrid.net',
-    :port           => '587',
-    :authentication => :plain,
-    :user_name      => ENV['SENDGRID_USERNAME'],
-    :password       => ENV['SENDGRID_PASSWORD'],
-    :domain         => 'heroku.com',
-    :enable_starttls_auto => true
+    address: 'smtp.sendgrid.net',
+    port: '587',
+    authentication: :plain,
+    user_name: ENV['SENDGRID_USERNAME'],
+    password: ENV['SENDGRID_PASSWORD'],
+    domain: 'heroku.com',
+    enable_starttls_auto: true
   }
-  config.action_mailer.default_url_options = { :host => 'www.expiration.xyz' }
+  config.action_mailer.default_url_options = { host: 'www.expiration.xyz' }
 end

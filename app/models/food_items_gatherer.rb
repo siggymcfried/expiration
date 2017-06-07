@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FoodItemsGatherer
   def initialize(user:, status:, page:)
     @user     = user
@@ -11,9 +13,8 @@ class FoodItemsGatherer
   end
 
   def counts
-    factory_mapper.inject({}) do |hash, (status, gatherer_class)|
+    factory_mapper.each_with_object({}) do |(status, gatherer_class), hash|
       hash[status] = gatherer_class.new(user: user).count
-      hash
     end
   end
 
