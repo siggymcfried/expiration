@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
   helper_method :current_user
 
-  before_filter :authenticate_user
+  before_action :authenticate_user
 
   def current_user
     @current_user ||= session_user
