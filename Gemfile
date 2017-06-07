@@ -20,7 +20,14 @@ group :development, :test do
   gem 'pry'
   gem 'rspec-rails'
   gem 'spring'
+end
+
+group :development do
   gem 'web-console'
+end
+
+group :test do
+  gem 'rspec_junit_formatter'
 end
 
 group :production do
