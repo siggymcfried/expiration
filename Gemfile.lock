@@ -58,6 +58,11 @@ GEM
       railties (>= 3.2, < 5.2)
     erubi (1.6.0)
     execjs (2.7.0)
+    factory_girl (4.8.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.8.0)
+      factory_girl (~> 4.8.0)
+      railties (>= 3.0.0)
     faraday (0.11.0)
       multipart-post (>= 1.2, < 3)
     globalid (0.4.0)
@@ -226,6 +231,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails
   dotenv-rails
+  factory_girl_rails
   jbuilder
   jquery-rails
   omniauth-google-oauth2
