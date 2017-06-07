@@ -25,9 +25,3 @@ Style/BlockComments:
 # Offense count: 24
 Style/Documentation:
   Enabled: false
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/EachWithObject:
-  Exclude:
-    - 'app/models/food_items_gatherer.rb'
