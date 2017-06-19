@@ -9,5 +9,9 @@ AllCops:
 Layout/EmptyLinesAroundAccessModifier:
   Enabled: false
 
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
+
 Style/EmptyMethod:
   EnforcedStyle: expanded
