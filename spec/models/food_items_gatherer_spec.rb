@@ -2,7 +2,6 @@
 
 require 'rails_helper'
 
-# rubocop:disable Metrics/BlockLength
 RSpec.describe FoodItemsGatherer do
   let(:user) { FactoryGirl.create(:user) }
   let(:status) { :expiring }
