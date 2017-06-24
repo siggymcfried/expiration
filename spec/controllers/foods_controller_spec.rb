@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe FoodItemsController do
+RSpec.describe FoodsController do
   before { get :index, params: params, session: { user_id: user.id, token: 'asd' } }
 
   let(:user) { FactoryGirl.create(:user) }

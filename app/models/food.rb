@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class FoodItem < ActiveRecord::Base
+class Food < ActiveRecord::Base
   self.per_page = 100
 
   validates :name, presence: true

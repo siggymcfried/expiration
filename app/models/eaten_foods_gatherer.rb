@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
-class TrashedFoodItemsGatherer
+class EatenFoodsGatherer
   def initialize(user:)
     @user = user
   end
 
-  def food_items
-    user.food_items.trashed
+  def foods
+    user.foods.eaten
   end
 
   def count
-    food_items.count
+    foods.count
   end
 
   private

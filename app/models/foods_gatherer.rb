@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class FoodItemsGatherer
+class FoodsGatherer
   def initialize(user:, status:, page:)
     @user     = user
     @status   = status
@@ -8,8 +8,8 @@ class FoodItemsGatherer
     @gatherer = gatherer_factory
   end
 
-  def food_items
-    gatherer.food_items.ordered.page(page)
+  def foods
+    gatherer.foods.ordered.page(page)
   end
 
   def counts
@@ -27,10 +27,10 @@ class FoodItemsGatherer
 
   def factory_mapper
     {
-      all:      AllFoodItemsGatherer,
-      eaten:    EatenFoodItemsGatherer,
-      trashed:  TrashedFoodItemsGatherer,
-      expiring: ExpiringFoodItemsGatherer
+      all:      AllFoodsGatherer,
+      eaten:    EatenFoodsGatherer,
+      trashed:  TrashedFoodsGatherer,
+      expiring: ExpiringFoodsGatherer
     }.with_indifferent_access
   end
 end
