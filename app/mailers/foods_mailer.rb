@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class FoodMailer < ApplicationMailer
+class FoodsMailer < ApplicationMailer
   default from: 'notifications@expiration.xyz'
 
   def food_status_email(user)
