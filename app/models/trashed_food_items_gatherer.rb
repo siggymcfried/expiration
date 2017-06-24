@@ -5,12 +5,12 @@ class TrashedFoodItemsGatherer
     @user = user
   end
 
-  def food_items
-    user.food_items.trashed
+  def foods
+    user.foods.trashed
   end
 
   def count
-    food_items.count
+    foods.count
   end
 
   private

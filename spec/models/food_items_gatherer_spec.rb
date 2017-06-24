@@ -8,10 +8,10 @@ RSpec.describe FoodItemsGatherer do
   let(:page) { 1 }
   let(:gatherer) { described_class.new(user: user, status: status, page: page) }
 
-  let(:expired_1) { FactoryGirl.create(:food_item, expiration: 1.day.ago, user: user) }
-  let(:expired_2) { FactoryGirl.create(:food_item, expiration: 1.day.ago, user: user) }
-  let(:eaten) { FactoryGirl.create(:food_item, eaten_on: 1.day.ago, expiration: 1.day.from_now, user: user) }
-  let(:trashed) { FactoryGirl.create(:food_item, expiration: 1.day.ago, trashed_on: 2.days.ago, user: user) }
+  let(:expired_1) { FactoryGirl.create(:food, expiration: 1.day.ago, user: user) }
+  let(:expired_2) { FactoryGirl.create(:food, expiration: 1.day.ago, user: user) }
+  let(:eaten) { FactoryGirl.create(:food, eaten_on: 1.day.ago, expiration: 1.day.from_now, user: user) }
+  let(:trashed) { FactoryGirl.create(:food, expiration: 1.day.ago, trashed_on: 2.days.ago, user: user) }
 
   context 'with no items' do
     describe '#counts' do

@@ -6,61 +6,61 @@ class FoodItemsController < ApplicationController
     gatherer = FoodItemsGatherer.new(user: current_user, status: params[:status], page: params[:page])
     @filters = %w[all eaten expiring trashed]
     @counts = gatherer.counts
-    @food_items = gatherer.food_items
+    @foods = gatherer.foods
   end
 
   def new
-    @food_item = current_user.food_items.new
+    @food = current_user.foods.new
   end
 
   def create
-    @food_item = current_user.food_items.new(food_item_create_params)
-    if @food_item.save
-      redirect_to food_items_path
+    @food = current_user.foods.new(food_create_params)
+    if @food.save
+      redirect_to foods_path
     else
       render 'new'
     end
   end
 
   def edit
-    @food_item = current_user.food_items.find(params[:id])
+    @food = current_user.foods.find(params[:id])
   end
 
   def update
-    @food_item = current_user.food_items.find(params[:id])
-    if @food_item.update(food_item_update_params)
-      redirect_to food_items_path
+    @food = current_user.foods.find(params[:id])
+    if @food.update(food_update_params)
+      redirect_to foods_path
     else
       render :edit
     end
   end
 
   def throw_out
-    food_item = current_user.food_items.find(params[:food_item_id])
-    if food_item.throw_out
+    food = current_user.foods.find(params[:food_id])
+    if food.throw_out
       flash[:success] = 'Food Item Thrown Out'
     else
       flash[:error] = 'Food Item Not Thrown Out'
     end
-    redirect_to food_items_path
+    redirect_to foods_path
   end
 
   def finish_eating
-    food_item = current_user.food_items.find(params[:food_item_id])
-    if food_item.finish_eating
+    food = current_user.foods.find(params[:food_id])
+    if food.finish_eating
       flash[:success] = 'Food Item Eaten'
     else
       flash[:error] = 'Food Item Not Eaten'
     end
-    redirect_to food_items_path
+    redirect_to foods_path
   end
 
   private
-  def food_item_create_params
-    params.require(:food_item).permit(:name, :expiration)
+  def food_create_params
+    params.require(:food).permit(:name, :expiration)
   end
 
-  def food_item_update_params
-    params.require(:food_item).permit(:name, :expiration, :eaten_on, :trashed_on)
+  def food_update_params
+    params.require(:food).permit(:name, :expiration, :eaten_on, :trashed_on)
   end
 end

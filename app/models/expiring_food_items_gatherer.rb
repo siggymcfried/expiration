@@ -5,12 +5,12 @@ class ExpiringFoodItemsGatherer
     @user = user
   end
 
-  def food_items
-    user.food_items.expiring
+  def foods
+    user.foods.expiring
   end
 
   def count
-    food_items.count
+    foods.count
   end
 
   private
