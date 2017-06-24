@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe FoodItemsGatherer do
+RSpec.describe FoodsGatherer do
   let(:user) { FactoryGirl.create(:user) }
   let(:status) { :expiring }
   let(:page) { 1 }

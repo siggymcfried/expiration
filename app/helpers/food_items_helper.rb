@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module FoodItemsHelper
+module FoodsHelper
   def freshness_of(food)
     expiration = food.expiration
     if expiration < Date.today

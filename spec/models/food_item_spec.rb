@@ -2,10 +2,10 @@
 
 require 'rails_helper.rb'
 
-describe FoodItem do
+describe Food do
   describe 'eaten' do
     it 'should be true' do
-      expect(FoodItem.new.eaten?).to be false
+      expect(Food.new.eaten?).to be false
     end
   end
 end

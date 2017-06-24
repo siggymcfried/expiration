@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class FoodItemsGatherer
+class FoodsGatherer
   def initialize(user:, status:, page:)
     @user     = user
     @status   = status
@@ -27,10 +27,10 @@ class FoodItemsGatherer
 
   def factory_mapper
     {
-      all:      AllFoodItemsGatherer,
-      eaten:    EatenFoodItemsGatherer,
-      trashed:  TrashedFoodItemsGatherer,
-      expiring: ExpiringFoodItemsGatherer
+      all:      AllFoodsGatherer,
+      eaten:    EatenFoodsGatherer,
+      trashed:  TrashedFoodsGatherer,
+      expiring: ExpiringFoodsGatherer
     }.with_indifferent_access
   end
 end

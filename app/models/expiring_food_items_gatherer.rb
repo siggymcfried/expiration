@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ExpiringFoodItemsGatherer
+class ExpiringFoodsGatherer
   def initialize(user:)
     @user = user
   end

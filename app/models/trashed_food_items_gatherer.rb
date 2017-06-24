@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class TrashedFoodItemsGatherer
+class TrashedFoodsGatherer
   def initialize(user:)
     @user = user
   end
