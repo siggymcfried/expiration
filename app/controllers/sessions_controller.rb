@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_or_create_by!(email: request.env['omniauth.auth'][:info][:email])
+    user = GoogleOauthUser.new(request.env['omniauth.auth']).update_or_create
     session[:user_id] = user.id
     redirect_to foods_path
   end
