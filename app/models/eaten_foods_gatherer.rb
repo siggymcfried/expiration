@@ -10,7 +10,7 @@ class EatenFoodsGatherer
   end
 
   def count
-    foods.count
+    foods.size
   end
 
   private
