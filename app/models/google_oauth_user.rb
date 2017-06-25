@@ -15,7 +15,7 @@ class GoogleOauthUser
   attr_reader :oauth_hash, :user
 
   def uid
-    oauth_hash.fetch(:uid)
+    oauth_hash.fetch('uid')
   end
 
   # rubocop:disable Metrics/AbcSize
