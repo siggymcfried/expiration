@@ -2,7 +2,9 @@
 
 FactoryGirl.define do
   factory :food do
-    name 'tasty treat'
+    sequence :name do |n|
+      "tasty treat #{n}"
+    end
     expiration Date.tomorrow
     user
   end
