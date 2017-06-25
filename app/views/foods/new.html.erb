@@ -1,3 +1,5 @@
+<%= error_messages_for @food, class: 'alert-danger' %>
+
 <%= form_for @food do |f| %>
   <%= f.label :name %>:
   <%= f.text_field :name %><br />
