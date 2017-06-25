@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   skip_before_action :authenticate_user
 
   def new
-    redirect_to '/auth/google_oauth2'
+    redirect_to '/auth/google'
   end
 
   def create
