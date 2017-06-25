@@ -7,9 +7,9 @@ module OmniAuthMacros
       provider: :google,
       uid: user.uid,
       info: {
-        email: 'michael@procore.com',
-        first_name: 'Michael',
-        last_name: 'Siegfried'
+        email: user.email,
+        first_name: user.first_name,
+        last_name: user.last_name
       },
       credentials: {
         token: 'abcdefg12345',
