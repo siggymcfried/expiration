@@ -27,7 +27,7 @@ class GoogleOauthUser
       last_name: oauth_hash[:info][:last_name],
       token: oauth_hash[:credentials][:token],
       refresh_token: oauth_hash[:credentials][:refresh_token],
-      oauth_expires_at: oauth_hash[:credentials][:expires_at]
+      oauth_expires_at: Time.at(oauth_hash[:credentials][:expires_at]).to_datetime.utc
     }
   end
 end
