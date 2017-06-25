@@ -10,7 +10,6 @@ FactoryGirl.define do
     last_name 'Siegfried'
     provider :google
     token '123456'
-    refresh_token 'abcdefg'
     oauth_expires_at 2.days.from_now
   end
 end
