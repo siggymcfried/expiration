@@ -3,7 +3,7 @@
 class GoogleOauthUser
   def initialize(oauth_hash)
     @oauth_hash = oauth_hash
-    @user = User.where(uid: uid).first_or_initialize
+    @user = User.where('uid = :uid OR email = :email', uid: uid, email: email).first_or_initialize
   end
 
   def update_or_create
@@ -17,9 +17,14 @@ class GoogleOauthUser
     oauth_hash.fetch(:uid)
   end
 
+  def email
+    oauth_hash[:info][:email]
+  end
+
   # rubocop:disable Metrics/AbcSize
   def params
     {
+      uid:              oauth_hash[:uid],
       provider:         oauth_hash[:provider],
       email:            oauth_hash[:info][:email],
       first_name:       oauth_hash[:info][:first_name],
