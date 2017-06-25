@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 
 ruby '2.4.1'
 
+gem 'bugsnag'
 gem 'coffee-rails'
 gem 'dotenv-rails'
 gem 'jbuilder'
