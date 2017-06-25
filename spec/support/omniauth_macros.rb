@@ -2,14 +2,14 @@
 
 module OmniAuthMacros
   # rubocop:disable Metrics/MethodLength
-  def mock_auth_hash(expires_at: 1.day.from_now)
+  def mock_auth_hash(user: FactoryGirl.create(:user), expires_at: 1.day.from_now)
     OmniAuth.config.mock_auth[:google] = OmniAuth::AuthHash.new(
       provider: :google,
-      uid: '123456789',
+      uid: user.uid,
       info: {
-        email: 'michael@procore.com',
-        first_name: 'Michael',
-        last_name: 'Siegfried'
+        email: user.email,
+        first_name: user.first_name,
+        last_name: user.last_name
       },
       credentials: {
         token: 'abcdefg12345',

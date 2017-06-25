@@ -6,10 +6,10 @@ describe Food do
   let(:food) { FactoryGirl.create(:food) }
 
   context 'when thrown out' do
-    specify { expect { food.throw_out }.to change(food, :trashed?).from(false).to(true) }
+    specify { expect { food.throw_out! }.to change(food, :trashed?).from(false).to(true) }
   end
 
   context 'when eaten' do
-    specify { expect { food.finish_eating }.to change(food, :eaten?).from(false).to(true) }
+    specify { expect { food.finish_eating! }.to change(food, :eaten?).from(false).to(true) }
   end
 end

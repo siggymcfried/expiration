@@ -26,11 +26,11 @@ class Food < ActiveRecord::Base
     eaten_on.present?
   end
 
-  def throw_out
-    update(trashed_on: Date.today)
+  def throw_out!
+    update!(trashed_on: Date.today)
   end
 
-  def finish_eating
-    update(eaten_on: Date.today)
+  def finish_eating!
+    update!(eaten_on: Date.today)
   end
 end

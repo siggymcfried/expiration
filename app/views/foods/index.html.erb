@@ -16,7 +16,7 @@
   <ul class="dropdown-menu" role="menu">
     <li>
       <% @filters.each do |filter| %>
-        <%= link_to(foods_path(status: filter)) do %>
+        <%= link_to(foods_path(status: filter), id: "filter_by_status_#{filter}") do %>
           <%= badge_for(count: @counts[filter]) %>
           <%= "#{filter.humanize} Items" %>
         <% end %>
@@ -37,7 +37,7 @@
   </tr>
   <% @foods.each do |food| %>
     <tr class="<%= freshness_of(food) %>">
-      <td><%= link_to(icon_for(:edit), edit_food_path(food), class: 'btn btn-default') %></td>
+      <td><%= link_to(icon_for(:edit), edit_food_path(food), id: "edit_food_#{food.id}", class: 'btn btn-default') %></td>
       <td><%= food.name %></td>
       <td><%= food.expiration %></td>
       <td><%= time_ago_in_words(food.expiration) %></td>
@@ -49,12 +49,12 @@
         <td><%= food.trashed_on %></td>
       <% else %>
         <td>
-          <%= button_to(food_finish_eating_path(food), class: 'btn btn-default') do %>
+          <%= button_to(food_finish_eating_path(food), id: "eat_food_#{food.id}", class: 'btn btn-default') do %>
             <% icon_for(:eaten) %>
           <% end %>
         </td>
         <td>
-          <%= button_to(food_throw_out_path(food), class: 'btn btn-default') do %>
+          <%= button_to(food_throw_out_path(food), id: "trash_food_#{food.id}", class: 'btn btn-default') do %>
             <% icon_for(:trash) %>
           <% end %>
         </td>
