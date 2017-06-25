@@ -3,9 +3,13 @@
 require 'rails_helper.rb'
 
 describe Food do
-  describe 'eaten' do
-    it 'should be true' do
-      expect(Food.new.eaten?).to be false
-    end
+  let(:food) { FactoryGirl.create(:food) }
+
+  context 'when thrown out' do
+    specify { expect { food.throw_out }.to change(food, :trashed?).from(false).to(true) }
+  end
+
+  context 'when eaten' do
+    specify { expect { food.finish_eating }.to change(food, :eaten?).from(false).to(true) }
   end
 end

@@ -26,19 +26,11 @@ class Food < ActiveRecord::Base
     eaten_on.present?
   end
 
-  def not_trashed?
-    !trashed?
-  end
-
-  def not_eaten?
-    !eaten?
-  end
-
   def throw_out
-    update(trashed_on: Date.today) if not_trashed? && not_eaten?
+    update(trashed_on: Date.today)
   end
 
   def finish_eating
-    update(eaten_on: Date.today) if not_trashed? && not_eaten?
+    update(eaten_on: Date.today)
   end
 end
