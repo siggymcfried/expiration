@@ -49,7 +49,7 @@
         <td><%= food.trashed_on %></td>
       <% else %>
         <td>
-          <%= button_to(food_finish_eating_path(food), id: "eat_food_#{food.id}", class: 'btn btn-default') do %>
+          <%= button_to(eaten_food_path(food), method: :put, id: "eat_food_#{food.id}", class: 'btn btn-default') do %>
             <% icon_for(:eaten) %>
           <% end %>
         </td>
