@@ -1,1 +1,0 @@
-![](https://circleci.com/gh/siggymcfried/expiration.png?circle-token=:circle-token&style=shield)
