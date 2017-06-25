@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
+require 'coveralls'
 require 'factory_girl_rails'
 require 'simplecov'
 
+Coveralls.wear!
 SimpleCov.start 'rails'
 
 RSpec.configure do |config|

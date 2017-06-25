@@ -20,6 +20,7 @@ gem 'uglifier'
 gem 'will_paginate'
 
 group :development, :test do
+  gem 'coveralls'
   gem 'pry'
   gem 'rubocop'
   gem 'spring'
