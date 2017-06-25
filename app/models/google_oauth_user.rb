@@ -3,19 +3,18 @@
 class GoogleOauthUser
   def initialize(oauth_hash)
     @oauth_hash = oauth_hash
-    @user = User.first_or_initialize(uid: uid)
+    @user = User.where(uid: uid).first_or_initialize
   end
 
   def update_or_create
-    user.update!(params)
-    user
+    user.tap { |user| user.update!(params) }
   end
 
   private
   attr_reader :oauth_hash, :user
 
   def uid
-    oauth_hash.fetch('uid')
+    oauth_hash.fetch(:uid)
   end
 
   # rubocop:disable Metrics/AbcSize
