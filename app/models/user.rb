@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
   scope :with_expired_or_expiring_food, -> { joins(:foods).merge(Food.expiring_by(1.week.from_now).not_eaten.not_trashed) }
 
   has_many :foods, dependent: :destroy
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end
