@@ -4,13 +4,11 @@ class SessionsController < ApplicationController
   skip_before_action :authenticate_user
 
   def new
-    redirect_to '/auth/google_oauth2'
   end
 
   def create
-    user = User.find_or_create_by!(email: request.env['omniauth.auth'][:info][:email])
+    user = GoogleOauthUser.new(request.env['omniauth.auth']).update_or_create
     session[:user_id] = user.id
-    session[:token] = request.env['omniauth.auth'][:credentials][:token]
     redirect_to foods_path
   end
 
