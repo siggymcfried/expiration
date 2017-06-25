@@ -3,47 +3,36 @@
 require 'rails_helper'
 
 RSpec.describe FoodsGatherer do
-  let(:user) { FactoryGirl.create(:user) }
+  let(:gatherer) { described_class.new(user: user, status: status, page: page) }
+  let(:user) { FactoryGirl.build_stubbed(:user) }
   let(:status) { :expiring }
   let(:page) { 1 }
-  let(:gatherer) { described_class.new(user: user, status: status, page: page) }
 
-  let(:expired_1) { FactoryGirl.create(:food, expiration: 1.day.ago, user: user) }
-  let(:expired_2) { FactoryGirl.create(:food, expiration: 1.day.ago, user: user) }
-  let(:eaten) { FactoryGirl.create(:food, eaten_on: 1.day.ago, expiration: 1.day.from_now, user: user) }
-  let(:trashed) { FactoryGirl.create(:food, expiration: 1.day.ago, trashed_on: 2.days.ago, user: user) }
+  describe '#counts' do
+    let(:counts) { gatherer.counts }
 
-  context 'with no items' do
-    describe '#counts' do
-      let(:counts) { gatherer.counts }
-
-      specify do
-        expect(counts).to include(all: 0, eaten: 0, expiring: 0, trashed: 0)
+    context 'when there is one eaten, 2 trashed, and 3 expiring foods' do
+      before do
+        expect(AllFoodsGatherer).to      receive(:new).and_return(OpenStruct.new(count: 6))
+        expect(EatenFoodsGatherer).to    receive(:new).and_return(OpenStruct.new(count: 1))
+        expect(TrashedFoodsGatherer).to  receive(:new).and_return(OpenStruct.new(count: 2))
+        expect(ExpiringFoodsGatherer).to receive(:new).and_return(OpenStruct.new(count: 3))
       end
+
+      specify { expect(counts).to match(all: 6, eaten: 1, trashed: 2, expiring: 3) }
     end
   end
 
-  context 'with one eaten and two expired items' do
-    let!(:items) { [expired_1, expired_2, eaten] }
+  describe '#foods' do
+    let(:foods) { gatherer.foods }
+    let(:expiring_gatherer) { instance_spy(ExpiringFoodsGatherer, count: 5) }
 
-    describe '#counts' do
-      let(:counts) { gatherer.counts }
+    before { expect(ExpiringFoodsGatherer).to receive(:new).with(user: user).and_return(expiring_gatherer) }
 
-      specify do
-        expect(counts).to include(all: 3, eaten: 1, expiring: 2, trashed: 0)
-      end
-    end
-  end
+    it 'calls food on the apporpriate gatherer' do
+      expect(expiring_gatherer).to receive(:foods).and_return(Food.none)
 
-  context 'with items of all kinds' do
-    let!(:items) { [expired_1, expired_2, eaten, trashed] }
-
-    describe '#counts' do
-      let(:counts) { gatherer.counts }
-
-      specify do
-        expect(counts).to include(all: 4, eaten: 1, expiring: 2, trashed: 1)
-      end
+      foods
     end
   end
 end

@@ -5,7 +5,6 @@ class FoodsGatherer
     @user     = user
     @status   = status
     @page     = page
-    @gatherer = gatherer_factory
   end
 
   def foods
@@ -19,9 +18,9 @@ class FoodsGatherer
   end
 
   private
-  attr_reader :user, :status, :page, :gatherer
+  attr_reader :user, :status, :page
 
-  def gatherer_factory
+  def gatherer
     factory_mapper[status].new(user: user)
   end
 
