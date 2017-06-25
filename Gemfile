@@ -20,7 +20,6 @@ gem 'will_paginate'
 
 group :development, :test do
   gem 'pry'
-  gem 'rspec-rails'
   gem 'rubocop'
   gem 'spring'
 end
@@ -30,8 +29,10 @@ group :development do
 end
 
 group :test do
+  gem 'capybara'
   gem 'factory_girl_rails'
   gem 'rails-controller-testing'
+  gem 'rspec-rails'
   gem 'rspec_junit_formatter'
   gem 'simplecov'
 end
