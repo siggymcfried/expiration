@@ -37,7 +37,7 @@
   </tr>
   <% @foods.each do |food| %>
     <tr class="<%= freshness_of(food) %>">
-      <td><%= link_to(icon_for(:edit), edit_food_path(food), class: 'btn btn-default') %></td>
+      <td><%= link_to(icon_for(:edit), edit_food_path(food), id: "edit_food_#{food.id}", class: 'btn btn-default') %></td>
       <td><%= food.name %></td>
       <td><%= food.expiration %></td>
       <td><%= time_ago_in_words(food.expiration) %></td>
