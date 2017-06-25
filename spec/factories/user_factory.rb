@@ -5,5 +5,12 @@ FactoryGirl.define do
     sequence :email do |n|
       "person#{n}@example.com"
     end
+    uid 'asd'
+    first_name 'Michael'
+    last_name 'Siegfried'
+    provider :google
+    token '123456'
+    refresh_token 'abcdefg'
+    oauth_expires_at 2.days.from_now
   end
 end
