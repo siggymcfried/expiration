@@ -4,7 +4,7 @@ require 'coveralls'
 require 'factory_girl_rails'
 require 'simplecov'
 
-Coveralls.wear!
+Coveralls.wear! 'rails'
 SimpleCov.start 'rails'
 
 RSpec.configure do |config|
