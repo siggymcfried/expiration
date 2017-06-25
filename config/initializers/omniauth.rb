@@ -6,6 +6,6 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     access_type: :offline,
     name: :google,
     prompt: :select_account,
-    scope: %w[contacts plus.login plus.me email profile]
+    scope: %w[plus.login plus.me email profile]
   }
 end
