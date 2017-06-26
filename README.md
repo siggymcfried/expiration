@@ -6,7 +6,7 @@
 [![Coverage Status][CS img]][Coverage Status]
 
 ## Description
-Expiration is an app aimed to help people keep their food in their fridge, not their trash!
+Expiration is an app aimed to help keep your food out of your trash!
 
 [Build Status]: https://circleci.com/gh/siggymcfried/expiration
 [Dependency Status]: https://gemnasium.com/siggymcfried/expiration
