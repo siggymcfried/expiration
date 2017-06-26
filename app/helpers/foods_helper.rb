@@ -3,7 +3,7 @@
 module FoodsHelper
   def freshness_of(food)
     expiration = food.expiration
-    if expiration < Date.today
+    if expiration < Time.now.utc.to_date
       'danger'
     elsif expiration < 1.week.from_now
       'warning'
