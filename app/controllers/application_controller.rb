@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   def authenticate_user
     unless current_user && current_user.oauth_expires_at > DateTime.now.utc
       clear_session
-      redirect_to new_session_path
+      redirect_to new_sessions_path
     end
   end
 

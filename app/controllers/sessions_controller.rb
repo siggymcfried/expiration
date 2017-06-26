@@ -18,6 +18,6 @@ class SessionsController < ApplicationController
 
   def logout
     clear_session
-    redirect_to new_session_path
+    redirect_to new_sessions_path
   end
 end
