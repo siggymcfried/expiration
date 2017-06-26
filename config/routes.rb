@@ -4,12 +4,7 @@ Rails.application.routes.draw do
   root 'foods#index'
   get 'auth/:provider/callback', controller: :sessions, action: :create
 
-  resources :sessions, only: %i[create new] do
-    collection do
-      get :logout
-      delete :destroy
-    end
-  end
+  resource :sessions, only: %i[create destroy new]
 
   resources :eaten_foods, only: :update
   resources :trashed_foods, only: :update

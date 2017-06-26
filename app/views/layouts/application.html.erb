@@ -8,7 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
@@ -51,7 +51,7 @@
               Signed in as <%= link_to(current_user.full_name, edit_user_path(current_user)) %>
               <%= link_to 'Logout', sessions_path, method: :delete, class: 'btn btn-default' %>
             <% else %>
-              <%= link_to 'Login or Sign Up', new_session_path, class: 'btn btn-default' %>
+              <%= link_to 'Login or Sign Up', new_sessions_path, class: 'btn btn-default' %>
             <% end %>
           </p>
         </div>
