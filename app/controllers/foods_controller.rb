@@ -35,11 +35,6 @@ class FoodsController < ApplicationController
     end
   end
 
-  def throw_out
-    current_user.foods.find(params[:food_id]).throw_out!
-    redirect_to foods_path
-  end
-
   private
   def food_create_params
     params.require(:food).permit(:name, :expiration)

@@ -54,7 +54,7 @@
           <% end %>
         </td>
         <td>
-          <%= button_to(food_throw_out_path(food), id: "trash_food_#{food.id}", class: 'btn btn-default') do %>
+          <%= button_to(trashed_food_path(food), method: :put, id: "trash_food_#{food.id}", class: 'btn btn-default') do %>
             <% icon_for(:trash) %>
           <% end %>
         </td>

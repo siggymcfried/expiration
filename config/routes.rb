@@ -12,8 +12,7 @@ Rails.application.routes.draw do
   end
 
   resources :eaten_foods, only: :update
-  resources :foods, only: %i[index new create edit update] do
-    post :throw_out
-  end
+  resources :trashed_foods, only: :update
+  resources :foods, only: %i[index new create edit update]
   resources :users, only: %i[edit destroy]
 end
