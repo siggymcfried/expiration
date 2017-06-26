@@ -13,10 +13,6 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    logout
-  end
-
-  def logout
     clear_session
     redirect_to new_sessions_path
   end
