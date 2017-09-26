@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   protected
   # rubocop:disable Style/GuardClause
   def authenticate_user
-    unless current_user && current_user.oauth_expires_at > DateTime.now.utc
+    unless current_user&.oauth_expires_at&.> DateTime.now.utc
       clear_session
       redirect_to new_sessions_path
     end
