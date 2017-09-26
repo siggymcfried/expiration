@@ -5,6 +5,7 @@ AllCops:
   Exclude:
     - db/schema.rb
     - vendor/bundle/**/*
+  TargetRubyVersion: 2.4
 
 Layout/EmptyLinesAroundAccessModifier:
   Enabled: false
