@@ -43,7 +43,7 @@ GEM
     arel (8.0.0)
     ast (2.3.0)
     bindex (0.5.0)
-    bugsnag (5.3.3)
+    bugsnag (5.4.0)
     builder (3.2.3)
     capybara (2.15.3)
       addressable
