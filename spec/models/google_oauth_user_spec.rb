@@ -21,7 +21,7 @@ RSpec.describe GoogleOauthUser do
     }
   end
   let(:uid) { '12345678910' }
-  let(:expires_at) { DateTime.now.utc }
+  let(:expires_at) { Time.now.utc }
 
   describe '#update_or_create' do
     let(:update_or_create) { google_user.update_or_create }
