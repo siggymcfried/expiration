@@ -4,19 +4,20 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
   helper_method :current_user
 
-  before_action :authenticate_user
+  before_action :authenticate_user, unless: :already_authenticated?
 
   def current_user
     @current_user ||= User.find_by(id: session[:user_id])
   end
 
   protected
-  # rubocop:disable Style/GuardClause
   def authenticate_user
-    unless current_user&.oauth_expires_at&.> Time.now.utc
-      clear_session
-      redirect_to new_sessions_path
-    end
+    clear_session
+    redirect_to new_sessions_path
+  end
+
+  def already_authenticated?
+    current_user&.oauth_expires_at&.> Time.now.utc
   end
 
   def clear_session
