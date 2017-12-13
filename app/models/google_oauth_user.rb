@@ -34,4 +34,5 @@ class GoogleOauthUser
       oauth_expires_at: Time.at(oauth_hash[:credentials][:expires_at]).to_datetime.utc
     }
   end
+  # rubocop:enable Metrics/AbcSize
 end

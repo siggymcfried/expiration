@@ -8,4 +8,5 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     prompt: :select_account,
     scope: %w[plus.login plus.me email profile]
   }
+  # rubocop:enable Style/BracesAroundHashParameters
 end
