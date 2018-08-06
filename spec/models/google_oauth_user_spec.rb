@@ -31,15 +31,15 @@ RSpec.describe GoogleOauthUser do
       it 'creates the user with the oauth attributes' do
         update_or_create
 
-        expect(user.attributes.with_indifferent_access).to include(
-          provider: 'google',
-          uid: uid,
-          email: 'siggy@gmail.com',
-          first_name: 'Michael',
-          last_name: 'Siegfried',
-          token: 'abcdefg12345',
-          refresh_token: '12345abcdefg',
-          oauth_expires_at: within(1.second).of(expires_at)
+        expect(user.attributes).to include(
+          'provider'         => 'google',
+          'uid'              => uid,
+          'email'            => 'siggy@gmail.com',
+          'first_name'       => 'Michael',
+          'last_name'        => 'Siegfried',
+          'token'            => 'abcdefg12345',
+          'refresh_token'    => '12345abcdefg',
+          'oauth_expires_at' => within(1.second).of(expires_at)
         )
       end
     end
