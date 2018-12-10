@@ -16,6 +16,7 @@ gem 'puma'
 gem 'rails'
 gem 'sass-rails'
 gem 'sdoc', group: :doc
+gem 'therubyracer'
 gem 'turbolinks'
 gem 'uglifier'
 gem 'will_paginate'
