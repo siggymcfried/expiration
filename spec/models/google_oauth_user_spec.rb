@@ -8,7 +8,7 @@ RSpec.describe GoogleOauthUser do
     {
       provider:    'google',
       uid:         uid,
-      info: {
+      info:        {
         email:      'siggy@gmail.com',
         first_name: 'Michael',
         last_name:  'Siegfried'

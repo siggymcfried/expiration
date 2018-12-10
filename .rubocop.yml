@@ -7,6 +7,10 @@ AllCops:
     - vendor/bundle/**/*
   TargetRubyVersion: 2.4
 
+Layout/AlignHash:
+  EnforcedColonStyle: table
+  EnforcedHashRocketStyle: table
+
 Layout/EmptyLinesAroundAccessModifier:
   Enabled: false
 
