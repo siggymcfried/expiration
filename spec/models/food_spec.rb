@@ -3,7 +3,7 @@
 require 'rails_helper.rb'
 
 describe Food do
-  let(:food) { FactoryGirl.create(:food) }
+  let(:food) { FactoryBot.create(:food) }
 
   context 'when thrown out' do
     specify { expect { food.throw_out! }.to change(food, :trashed?).from(false).to(true) }

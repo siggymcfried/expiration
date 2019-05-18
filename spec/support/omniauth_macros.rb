@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module OmniAuthMacros
-  def mock_auth_hash(user: FactoryGirl.create(:user), expires_at: 1.day.from_now)
+  def mock_auth_hash(user: FactoryBot.create(:user), expires_at: 1.day.from_now)
     OmniAuth.config.mock_auth[:google] = OmniAuth::AuthHash.new(
       provider:    :google,
       uid:         user.uid,

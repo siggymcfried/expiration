@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'coveralls'
-require 'factory_girl_rails'
+require 'factory_bot_rails'
 require 'simplecov'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new(

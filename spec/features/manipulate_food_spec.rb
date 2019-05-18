@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'Manipulate food' do
   it 'user creates food' do
-    user = FactoryGirl.create(:user)
+    user = FactoryBot.create(:user)
     visit root_path
     mock_auth_hash(user: user)
     click_link 'Sign in with Google'
@@ -23,7 +23,7 @@ RSpec.describe 'Manipulate food' do
   end
 
   it 'user edits food' do
-    food = FactoryGirl.create(:food, name: 'Changing food')
+    food = FactoryBot.create(:food, name: 'Changing food')
 
     visit root_path
     mock_auth_hash(user: food.user)

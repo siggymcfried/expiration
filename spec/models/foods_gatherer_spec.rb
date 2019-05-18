@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe FoodsGatherer do
   let(:gatherer) { described_class.new(user: user, status: status, page: page) }
-  let(:user) { FactoryGirl.build_stubbed(:user) }
+  let(:user) { FactoryBot.build_stubbed(:user) }
   let(:status) { :expiring }
   let(:page) { 1 }
 
