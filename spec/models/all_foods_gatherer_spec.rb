@@ -21,7 +21,7 @@ describe AllFoodsGatherer do
       end
 
       it "does not include another user's foods" do
-        expect(gatherer.foods.map(&:id)).to_not include(other_user_food.id)
+        expect(gatherer.foods.map(&:id)).not_to include(other_user_food.id)
       end
     end
 

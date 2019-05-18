@@ -5,23 +5,23 @@ FactoryGirl.define do
     sequence :name do |n|
       "tasty treat #{n}"
     end
-    expiration Date.tomorrow
+    expiration { Date.tomorrow }
     user
 
     trait :expired do
-      expiration Date.yesterday
+      expiration { Date.yesterday }
     end
 
     trait :expiring do
-      expiration Date.tomorrow
+      expiration { Date.tomorrow }
     end
 
     trait :eaten do
-      eaten_on Date.yesterday
+      eaten_on { Date.yesterday }
     end
 
     trait :trashed do
-      trashed_on Date.yesterday
+      trashed_on { Date.yesterday }
     end
   end
 end

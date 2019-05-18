@@ -22,11 +22,11 @@ describe ExpiringFoodsGatherer do
       end
 
       it "does not include the user's other foods" do
-        expect(food_ids).to_not include(trashed.id)
+        expect(food_ids).not_to include(trashed.id)
       end
 
       it "does not include another user's foods" do
-        expect(food_ids).to_not include(other_user_food.id)
+        expect(food_ids).not_to include(other_user_food.id)
       end
     end
 
