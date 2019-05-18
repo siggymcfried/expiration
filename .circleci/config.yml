@@ -2,7 +2,7 @@ version: 2
 jobs:
   test:
     docker:
-      - image: circleci/ruby:2.4.1
+      - image: circleci/ruby:2.6.3
         environment:
           RAILS_ENV: test
           PGHOST: 127.0.0.1
@@ -33,7 +33,7 @@ jobs:
           command: bundle exec rspec spec --format progress
   rubocop:
     docker:
-      - image: circleci/ruby:2.4.1
+      - image: circleci/ruby:2.6.3
     steps:
       - checkout
       - restore_cache:
