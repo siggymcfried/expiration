@@ -13,7 +13,7 @@ gem 'jquery-rails'
 gem 'omniauth-google-oauth2'
 gem 'pg'
 gem 'puma'
-gem 'rails'
+gem 'rails', '6.0.0.rc1'
 gem 'sass-rails'
 gem 'sdoc', group: :doc
 gem 'therubyracer'
@@ -31,6 +31,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'listen'
   gem 'web-console'
 end
 
@@ -38,7 +39,7 @@ group :test do
   gem 'capybara'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '4.0.0.beta2'
   gem 'rspec_junit_formatter'
   gem 'simplecov'
 end
