@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe "Change food's status" do
   it 'user eats food' do
-    food = FactoryGirl.create(:food, name: 'Yummy food')
+    food = FactoryBot.create(:food, name: 'Yummy food')
 
     visit root_path
     mock_auth_hash(user: food.user)
@@ -19,7 +19,7 @@ RSpec.describe "Change food's status" do
   end
 
   it 'user recovers eaten food' do
-    food = FactoryGirl.create(:food, :eaten, name: 'Misplaced Food')
+    food = FactoryBot.create(:food, :eaten, name: 'Misplaced Food')
 
     visit root_path
     mock_auth_hash(user: food.user)
@@ -39,7 +39,7 @@ RSpec.describe "Change food's status" do
   end
 
   it 'user trashes food' do
-    food = FactoryGirl.create(:food, name: 'Old food')
+    food = FactoryBot.create(:food, name: 'Old food')
 
     visit root_path
     mock_auth_hash(user: food.user)
@@ -54,7 +54,7 @@ RSpec.describe "Change food's status" do
   end
 
   it 'user recovers trashed food' do
-    food = FactoryGirl.create(:food, :trashed, name: 'Questionable Food')
+    food = FactoryBot.create(:food, :trashed, name: 'Questionable Food')
 
     visit root_path
     mock_auth_hash(user: food.user)

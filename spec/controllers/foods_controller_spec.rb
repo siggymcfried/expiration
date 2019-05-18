@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe FoodsController do
   before { get :index, params: params, session: { user_id: user.id } }
 
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { FactoryBot.create(:user) }
 
   describe 'GET index' do
     context 'when passing a valid status' do

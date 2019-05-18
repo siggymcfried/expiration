@@ -4,16 +4,16 @@ require 'rails_helper.rb'
 
 describe AllFoodsGatherer do
   let(:gatherer) { described_class.new(user: my_user) }
-  let(:my_user) { FactoryGirl.build_stubbed(:user, foods: my_user_foods) }
-  let!(:other_user_food) { FactoryGirl.build_stubbed(:food) }
+  let(:my_user) { FactoryBot.build_stubbed(:user, foods: my_user_foods) }
+  let!(:other_user_food) { FactoryBot.build_stubbed(:food) }
 
   context 'when the user has one of each type of food' do
     let(:my_user_foods) { [eaten, expiring, expired, trashed] }
 
-    let(:eaten) { FactoryGirl.build_stubbed(:food, :eaten) }
-    let(:expiring) { FactoryGirl.build_stubbed(:food, :expiring) }
-    let(:expired) { FactoryGirl.build_stubbed(:food, :expired) }
-    let(:trashed) { FactoryGirl.build_stubbed(:food, :trashed) }
+    let(:eaten) { FactoryBot.build_stubbed(:food, :eaten) }
+    let(:expiring) { FactoryBot.build_stubbed(:food, :expiring) }
+    let(:expired) { FactoryBot.build_stubbed(:food, :expired) }
+    let(:trashed) { FactoryBot.build_stubbed(:food, :trashed) }
 
     describe '#foods' do
       it "includes the user's foods" do

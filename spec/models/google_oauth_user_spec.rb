@@ -45,7 +45,7 @@ RSpec.describe GoogleOauthUser do
     end
 
     context 'when there is a user for that uid' do
-      before { FactoryGirl.create(:user, uid: uid, email: 'michael@gmail.com') }
+      before { FactoryBot.create(:user, uid: uid, email: 'michael@gmail.com') }
 
       it 'updates the user' do
         expect { update_or_create }.to change { User.find_by(uid: uid).email }.from('michael@gmail.com').to('siggy@gmail.com')

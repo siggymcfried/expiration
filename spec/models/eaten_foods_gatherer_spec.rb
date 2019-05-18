@@ -4,15 +4,15 @@ require 'rails_helper.rb'
 
 describe EatenFoodsGatherer do
   let(:gatherer) { described_class.new(user: my_user) }
-  let(:my_user) { FactoryGirl.create(:user, foods: my_user_foods) }
-  let!(:other_user_food) { FactoryGirl.create(:food) }
+  let(:my_user) { FactoryBot.create(:user, foods: my_user_foods) }
+  let!(:other_user_food) { FactoryBot.create(:food) }
 
   context 'when the user has two expiring foods and one non expiring food' do
     let(:my_user_foods) { [eaten1, eaten2, expiring] }
 
-    let(:eaten1) { FactoryGirl.create(:food, :eaten) }
-    let(:eaten2) { FactoryGirl.create(:food, :eaten) }
-    let(:expiring) { FactoryGirl.create(:food, :expiring) }
+    let(:eaten1) { FactoryBot.create(:food, :eaten) }
+    let(:eaten2) { FactoryBot.create(:food, :eaten) }
+    let(:expiring) { FactoryBot.create(:food, :expiring) }
 
     describe '#foods' do
       let(:food_ids) { gatherer.foods.map(&:id) }
