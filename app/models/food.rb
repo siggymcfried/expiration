@@ -33,4 +33,8 @@ class Food < ActiveRecord::Base
   def finish_eating!
     update!(eaten_on: Date.today)
   end
+
+  def expiration_length
+    (expiration - created_at.to_date).days
+  end
 end

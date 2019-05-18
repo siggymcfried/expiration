@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   resources :trashed_foods, only: :update
   resources :foods, only: %i[index new create edit update]
   resources :users, only: %i[edit destroy]
+  resources :expiration_dates, only: :show
 end
