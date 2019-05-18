@@ -16,7 +16,7 @@ class Food < ActiveRecord::Base
   scope :expiring_after, ->(date) { where('expiration >= ?', date) }
   scope :not_eaten,      -> { where(eaten_on: nil) }
   scope :not_trashed,    -> { where(trashed_on: nil) }
-  scope :ordered,        -> { order(expiration: :asc).order('LOWER(name)') }
+  scope :ordered,        -> { order(expiration: :asc).order(Food.arel_table['name'].lower) }
 
   def trashed?
     trashed_on.present?
