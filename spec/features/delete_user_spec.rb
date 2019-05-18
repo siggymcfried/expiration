@@ -2,8 +2,8 @@
 
 require 'rails_helper'
 
-RSpec.feature 'Delete users' do
-  scenario 'user deletes their user' do
+RSpec.describe 'Delete users' do
+  it 'user deletes their user' do
     user = FactoryGirl.create(:user, first_name: 'Daffy', last_name: 'Duck')
     visit root_path
     mock_auth_hash(user: user)

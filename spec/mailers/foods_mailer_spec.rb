@@ -41,8 +41,8 @@ RSpec.describe FoodsMailer do
         specify { expect(subject).to match(expired_food.name) }
         specify { expect(subject).to match('1 Items Expiring in the Next Week') }
         specify { expect(subject).to match(expiring_food.name) }
-        specify { expect(subject).to_not match(eaten_food.name) }
-        specify { expect(subject).to_not match(trashed_food.name) }
+        specify { expect(subject).not_to match(eaten_food.name) }
+        specify { expect(subject).not_to match(trashed_food.name) }
       end
 
       context 'when there are no expired items' do

@@ -2,14 +2,14 @@
 
 require 'rails_helper'
 
-RSpec.feature 'Manipulate food' do
-  scenario 'user creates food' do
+RSpec.describe 'Manipulate food' do
+  it 'user creates food' do
     user = FactoryGirl.create(:user)
     visit root_path
     mock_auth_hash(user: user)
     click_link 'Sign in with Google'
 
-    expect(page).to_not have_text('My new great food')
+    expect(page).not_to have_text('My new great food')
     click_link 'Add New Item'
     click_button 'Create Food'
     expect(page).to have_text("Name can't be blank")
@@ -22,7 +22,7 @@ RSpec.feature 'Manipulate food' do
     expect(page).to have_text('My new great food')
   end
 
-  scenario 'user edits food' do
+  it 'user edits food' do
     food = FactoryGirl.create(:food, name: 'Changing food')
 
     visit root_path
