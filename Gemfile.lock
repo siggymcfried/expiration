@@ -60,7 +60,7 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     ast (2.4.0)
     bindex (0.8.1)
-    bugsnag (6.11.1)
+    bugsnag (6.12.0)
       concurrent-ruby (~> 1.0)
     builder (3.2.3)
     capybara (3.28.0)
