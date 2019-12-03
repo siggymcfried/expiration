@@ -10,7 +10,7 @@ AllCops:
     - vendor/bundle/**/*
   TargetRubyVersion: 2.6
 
-Layout/AlignHash:
+Layout/HashAlignment:
   EnforcedColonStyle: table
   EnforcedHashRocketStyle: table
 
