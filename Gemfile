@@ -13,7 +13,7 @@ gem 'jquery-rails'
 gem 'omniauth-google-oauth2'
 gem 'pg'
 gem 'puma'
-gem 'rails', '6.0.1'
+gem 'rails', '6.0.2'
 gem 'sass-rails'
 gem 'sdoc', group: :doc
 gem 'therubyracer'
