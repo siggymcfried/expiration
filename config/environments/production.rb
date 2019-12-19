@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Rails.application.configure do # rubocop:disable BlockLength
+Rails.application.configure do # rubocop:disable Metrics/BlockLength
   config.cache_classes = true
   config.eager_load = true
   config.consider_all_requests_local       = false
