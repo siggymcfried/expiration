@@ -11,9 +11,7 @@ RSpec.describe Icon do
       let(:icon_name) { :add }
 
       it do
-        expect(icon).to receive(:content_tag).with(:i, nil, class: 'fa fa-plus')
-
-        icon.render
+        expect(icon.render).to eq('<i class="fa fa-plus"></i>')
       end
     end
 
@@ -21,9 +19,7 @@ RSpec.describe Icon do
       let(:icon_name) { :eaten }
 
       it do
-        expect(icon).to receive(:content_tag).with(:i, nil, class: 'fa fa-cutlery')
-
-        icon.render
+        expect(icon.render).to eq('<i class="fa fa-cutlery"></i>')
       end
     end
 
@@ -31,9 +27,7 @@ RSpec.describe Icon do
       let(:icon_name) { :edit }
 
       it do
-        expect(icon).to receive(:content_tag).with(:i, nil, class: 'fa fa-edit')
-
-        icon.render
+        expect(icon.render).to eq('<i class="fa fa-edit"></i>')
       end
     end
 
@@ -41,9 +35,7 @@ RSpec.describe Icon do
       let(:icon_name) { :trash }
 
       it do
-        expect(icon).to receive(:content_tag).with(:i, nil, class: 'fa fa-trash-o')
-
-        icon.render
+        expect(icon.render).to eq('<i class="fa fa-trash-o"></i>')
       end
     end
   end

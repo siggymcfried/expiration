@@ -25,14 +25,14 @@ RSpec.describe FoodsGatherer do
 
   describe '#foods' do
     let(:foods) { gatherer.foods }
-    let(:expiring_gatherer) { instance_spy(ExpiringFoodsGatherer, count: 5) }
+    let(:expiring_gatherer) { instance_spy(ExpiringFoodsGatherer, foods: Food.none, count: 5) }
 
     before { allow(ExpiringFoodsGatherer).to receive(:new).with(user: user).and_return(expiring_gatherer) }
 
     it 'calls food on the apporpriate gatherer' do
-      expect(expiring_gatherer).to receive(:foods).and_return(Food.none)
-
       foods
+
+      expect(expiring_gatherer).to have_received(:foods)
     end
   end
 end

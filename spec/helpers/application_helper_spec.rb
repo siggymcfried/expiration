@@ -13,9 +13,9 @@ RSpec.describe ApplicationHelper do
       before { allow(Icon).to receive(:new).with(icon_name: icon_name).and_return(icon) }
 
       specify do
-        expect(icon).to receive(:render).with(no_args)
-
         icon_for
+
+        expect(icon).to have_received(:render).with(no_args)
       end
     end
   end
