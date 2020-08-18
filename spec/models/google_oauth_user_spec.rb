@@ -28,7 +28,7 @@ RSpec.describe GoogleOauthUser do
     let(:user) { User.find_by(uid: uid) }
 
     context 'when there is no user for that uid' do
-      it 'creates the user with the oauth attributes' do
+      it 'creates the user with the oauth attributes' do # rubocop:disable RSpec/ExampleLength
         update_or_create
 
         expect(user.attributes).to include(
