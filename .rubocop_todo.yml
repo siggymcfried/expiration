@@ -40,12 +40,3 @@ RSpec/NestedGroups:
 # Offense count: 31
 Style/Documentation:
   Enabled: false
-
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: AutoCorrect, Max, AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
-# URISchemes: http, https
-Layout/LineLength:
-  Exclude:
-    - 'app/models/user.rb'
-    - 'spec/models/google_oauth_user_spec.rb'
