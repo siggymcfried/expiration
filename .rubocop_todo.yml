@@ -6,27 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: TreatCommentsAsGroupSeparators, ConsiderPunctuation, Include.
-# Include: **/*.gemfile, **/Gemfile, **/gems.rb
-Bundler/OrderedGems:
-  Exclude:
-    - 'Gemfile'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Lint/RedundantCopDisableDirective:
-  Exclude:
-    - 'config/initializers/omniauth.rb'
-
-# Offense count: 4
-# Configuration parameters: Prefixes.
-# Prefixes: when, with, without
-RSpec/ContextWording:
-  Exclude:
-    - 'spec/models/icon_spec.rb'
-
 # Offense count: 4
 RSpec/DescribeClass:
   Exclude:
@@ -81,47 +60,6 @@ RSpec/NestedGroups:
 # Offense count: 31
 Style/Documentation:
   Enabled: false
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/ExpandPathArguments:
-  Exclude:
-    - 'config.ru'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/GlobalStdStream:
-  Exclude:
-    - 'config/environments/production.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/HashTransformValues:
-  Exclude:
-    - 'app/models/foods_gatherer.rb'
-
-# Offense count: 3
-# Cop supports --auto-correct.
-# Configuration parameters: SafeForConstants.
-Style/RedundantFetchBlock:
-  Exclude:
-    - 'config/puma.rb'
-
-# Offense count: 5
-# Cop supports --auto-correct.
-Style/RedundantFileExtensionInRequire:
-  Exclude:
-    - 'spec/models/all_foods_gatherer_spec.rb'
-    - 'spec/models/eaten_foods_gatherer_spec.rb'
-    - 'spec/models/expiring_foods_gatherer_spec.rb'
-    - 'spec/models/food_spec.rb'
-    - 'spec/models/trashed_foods_gatherer_spec.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/StringConcatenation:
-  Exclude:
-    - 'app/models/icon.rb'
 
 # Offense count: 2
 # Cop supports --auto-correct.

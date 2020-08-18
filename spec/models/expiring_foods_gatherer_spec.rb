@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'rails_helper.rb'
+require 'rails_helper'
 
 describe ExpiringFoodsGatherer do
   let(:gatherer) { described_class.new(user: my_user) }

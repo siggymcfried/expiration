@@ -9,7 +9,7 @@ RSpec.describe Icon do
   describe '#render' do
     subject { icon.render }
 
-    context 'for the add icon' do
+    context 'with the add icon' do
       let(:icon_name) { :add }
 
       it do
@@ -18,7 +18,7 @@ RSpec.describe Icon do
       end
     end
 
-    context 'for the eaten icon' do
+    context 'with the eaten icon' do
       let(:icon_name) { :eaten }
 
       it do
@@ -27,7 +27,7 @@ RSpec.describe Icon do
       end
     end
 
-    context 'for the edit icon' do
+    context 'with the edit icon' do
       let(:icon_name) { :edit }
 
       it do
@@ -36,7 +36,7 @@ RSpec.describe Icon do
       end
     end
 
-    context 'for the trash icon' do
+    context 'with the trash icon' do
       let(:icon_name) { :trash }
 
       it do

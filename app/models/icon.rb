@@ -16,7 +16,7 @@ class Icon
   attr_reader :icon_name
 
   def icon_class
-    'fa ' + icon_classes.fetch(icon_name)
+    "fa #{icon_classes.fetch(icon_name)}"
   end
 
   def icon_classes
