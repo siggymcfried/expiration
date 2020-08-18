@@ -24,13 +24,6 @@ RSpec/MultipleExpectations:
     - 'spec/features/manipulate_food_spec.rb'
     - 'spec/features/user_authentication_spec.rb'
 
-# Offense count: 4
-# Configuration parameters: Max.
-RSpec/NestedGroups:
-  Exclude:
-    - 'spec/controllers/foods_controller_spec.rb'
-    - 'spec/mailers/foods_mailer_spec.rb'
-
 # Offense count: 31
 Style/Documentation:
   Enabled: false

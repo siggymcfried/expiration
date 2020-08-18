@@ -22,5 +22,8 @@ Metrics/BlockLength:
   Exclude:
     - spec/**/*
 
+RSpec/NestedGroups:
+  Max: 4
+
 Style/EmptyMethod:
   EnforcedStyle: expanded
