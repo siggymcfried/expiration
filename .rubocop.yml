@@ -29,9 +29,5 @@ RSpec/MultipleExpectations:
 RSpec/NestedGroups:
   Max: 4
 
-Style/Documentation:
-  Exclude:
-    - db/migrate/**/*
-
 Style/EmptyMethod:
   EnforcedStyle: expanded
