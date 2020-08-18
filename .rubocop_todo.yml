@@ -30,13 +30,6 @@ RSpec/MultipleExpectations:
     - 'spec/features/manipulate_food_spec.rb'
     - 'spec/features/user_authentication_spec.rb'
 
-# Offense count: 12
-# Configuration parameters: IgnoreSharedExamples.
-RSpec/NamedSubject:
-  Exclude:
-    - 'spec/mailers/foods_mailer_spec.rb'
-    - 'spec/models/icon_spec.rb'
-
 # Offense count: 4
 # Configuration parameters: Max.
 RSpec/NestedGroups:

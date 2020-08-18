@@ -7,14 +7,13 @@ RSpec.describe Icon do
   let(:icon) { described_class.new(icon_name: icon_name) }
 
   describe '#render' do
-    subject { icon.render }
-
     context 'with the add icon' do
       let(:icon_name) { :add }
 
       it do
         expect(icon).to receive(:content_tag).with(:i, nil, class: 'fa fa-plus')
-        subject
+
+        icon.render
       end
     end
 
@@ -23,7 +22,8 @@ RSpec.describe Icon do
 
       it do
         expect(icon).to receive(:content_tag).with(:i, nil, class: 'fa fa-cutlery')
-        subject
+
+        icon.render
       end
     end
 
@@ -32,7 +32,8 @@ RSpec.describe Icon do
 
       it do
         expect(icon).to receive(:content_tag).with(:i, nil, class: 'fa fa-edit')
-        subject
+
+        icon.render
       end
     end
 
@@ -41,7 +42,8 @@ RSpec.describe Icon do
 
       it do
         expect(icon).to receive(:content_tag).with(:i, nil, class: 'fa fa-trash-o')
-        subject
+
+        icon.render
       end
     end
   end
