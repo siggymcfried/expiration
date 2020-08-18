@@ -2,12 +2,12 @@ version: 2
 jobs:
   test:
     docker:
-      - image: circleci/ruby:2.6.3
+      - image: circleci/ruby:2.7.1
         environment:
           RAILS_ENV: test
           PGHOST: 127.0.0.1
           PGUSER: root
-      - image: circleci/postgres:9.6
+      - image: circleci/postgres:12.4
         environment:
           POSTGRES_USER: root
           POSTGRES_DB: expiration_test
@@ -39,7 +39,7 @@ jobs:
           command: bundle exec rspec spec --format progress
   rubocop:
     docker:
-      - image: circleci/ruby:2.6.3
+      - image: circleci/ruby:2.7.1
     steps:
       - checkout
       - restore_cache:
