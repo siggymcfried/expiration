@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Manipulate food' do
+RSpec.describe 'Manipulate food', type: :feature do
   it 'user creates food' do
     user = FactoryBot.create(:user)
     visit root_path

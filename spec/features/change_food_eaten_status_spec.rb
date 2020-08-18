@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe "Change food's status" do
+RSpec.describe "Change food's status", type: :feature do
   it 'user eats food' do
     food = FactoryBot.create(:food, name: 'Yummy food')
 

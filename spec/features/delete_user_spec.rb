@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Delete users' do
+RSpec.describe 'Delete users', type: :feature do
   it 'user deletes their user' do
     user = FactoryBot.create(:user, first_name: 'Daffy', last_name: 'Duck')
     visit root_path
