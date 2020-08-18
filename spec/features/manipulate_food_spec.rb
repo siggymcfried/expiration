@@ -2,8 +2,8 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Manipulate food' do
-  it 'user creates food' do
+RSpec.describe 'Manipulate food', type: :feature do
+  it 'user creates food' do # rubocop:disable RSpec/ExampleLength
     user = FactoryBot.create(:user)
     visit root_path
     mock_auth_hash(user: user)
@@ -22,7 +22,7 @@ RSpec.describe 'Manipulate food' do
     expect(page).to have_text('My new great food')
   end
 
-  it 'user edits food' do
+  it 'user edits food' do # rubocop:disable RSpec/ExampleLength
     food = FactoryBot.create(:food, name: 'Changing food')
 
     visit root_path

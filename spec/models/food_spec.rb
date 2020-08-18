@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'rails_helper.rb'
+require 'rails_helper'
 
 describe Food do
   let(:food) { FactoryBot.create(:food, expiration: 6.days.from_now) }

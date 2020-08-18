@@ -28,7 +28,7 @@ RSpec.describe GoogleOauthUser do
     let(:user) { User.find_by(uid: uid) }
 
     context 'when there is no user for that uid' do
-      it 'creates the user with the oauth attributes' do
+      it 'creates the user with the oauth attributes' do # rubocop:disable RSpec/ExampleLength
         update_or_create
 
         expect(user.attributes).to include(
@@ -48,7 +48,9 @@ RSpec.describe GoogleOauthUser do
       before { FactoryBot.create(:user, uid: uid, email: 'michael@gmail.com') }
 
       it 'updates the user' do
-        expect { update_or_create }.to change { User.find_by(uid: uid).email }.from('michael@gmail.com').to('siggy@gmail.com')
+        expect { update_or_create }.to change {
+          User.find_by(uid: uid).email
+        }.from('michael@gmail.com').to('siggy@gmail.com')
       end
     end
   end

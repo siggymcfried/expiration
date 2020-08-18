@@ -27,7 +27,7 @@ RSpec.describe FoodsMailer do
     end
 
     describe 'the email body' do
-      subject { mail.body.encoded }
+      let(:body) { mail.body.encoded }
 
       context 'with one of every kind of item' do
         before do
@@ -37,12 +37,12 @@ RSpec.describe FoodsMailer do
           trashed_food
         end
 
-        specify { expect(subject).to match('1 Expired Items') }
-        specify { expect(subject).to match(expired_food.name) }
-        specify { expect(subject).to match('1 Items Expiring in the Next Week') }
-        specify { expect(subject).to match(expiring_food.name) }
-        specify { expect(subject).not_to match(eaten_food.name) }
-        specify { expect(subject).not_to match(trashed_food.name) }
+        specify { expect(body).to match('1 Expired Items') }
+        specify { expect(body).to match(expired_food.name) }
+        specify { expect(body).to match('1 Items Expiring in the Next Week') }
+        specify { expect(body).to match(expiring_food.name) }
+        specify { expect(body).not_to match(eaten_food.name) }
+        specify { expect(body).not_to match(trashed_food.name) }
       end
 
       context 'when there are no expired items' do
@@ -52,7 +52,7 @@ RSpec.describe FoodsMailer do
           trashed_food
         end
 
-        specify { expect(subject).to match('There are no expired items.') }
+        specify { expect(body).to match('There are no expired items.') }
       end
 
       context 'when there are no items expiring in the next week' do
@@ -62,7 +62,7 @@ RSpec.describe FoodsMailer do
           trashed_food
         end
 
-        specify { expect(subject).to match('There are no items expiring in the next week.') }
+        specify { expect(body).to match('There are no items expiring in the next week.') }
       end
     end
   end

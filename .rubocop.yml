@@ -9,7 +9,7 @@ AllCops:
     - db/schema.rb
     - vendor/bundle/**/*
   NewCops: enable
-  TargetRubyVersion: 2.6
+  TargetRubyVersion: 2.7
 
 Layout/HashAlignment:
   EnforcedColonStyle: table
@@ -21,6 +21,13 @@ Layout/EmptyLinesAroundAccessModifier:
 Metrics/BlockLength:
   Exclude:
     - spec/**/*
+
+RSpec/MultipleExpectations:
+  Exclude:
+    - spec/features/**/*
+
+RSpec/NestedGroups:
+  Max: 4
 
 Style/EmptyMethod:
   EnforcedStyle: expanded

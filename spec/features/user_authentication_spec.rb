@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'user authentication' do
+RSpec.describe 'user authentication', type: :feature do
   it 'user logs in with google auth' do
     visit root_path
     expect(page).to have_link('Sign in with Google')
@@ -11,7 +11,7 @@ RSpec.describe 'user authentication' do
     expect(page).to have_content('Michael Siegfried')
   end
 
-  it 'user logs out' do
+  it 'user logs out' do # rubocop:disable RSpec/ExampleLength
     mock_auth_hash
     visit root_path
     expect(page).to have_link('Sign in with Google')

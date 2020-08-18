@@ -12,8 +12,8 @@ class FoodsGatherer
   end
 
   def counts
-    factory_mapper.each_with_object({}) do |(status, gatherer_class), hash|
-      hash[status] = gatherer_class.new(user: user).count
+    factory_mapper.transform_values do |gatherer_class|
+      gatherer_class.new(user: user).count
     end.with_indifferent_access
   end
 
