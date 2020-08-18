@@ -10,6 +10,7 @@ jobs:
       - image: circleci/postgres:12.4
         environment:
           POSTGRES_USER: root
+          POSTGRES_PASSWORD: $POSTGRES_PASSWORD
           POSTGRES_DB: expiration_test
     steps:
       - checkout
